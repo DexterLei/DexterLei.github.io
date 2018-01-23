@@ -354,45 +354,15 @@
 
       
         
-          
-            <hr>
+          <hr>
 <h2 id="拓展应用："><a href="#拓展应用：" class="headerlink" title="拓展应用："></a>拓展应用：</h2><h3 id="评论系统"><a href="#评论系统" class="headerlink" title="评论系统"></a>评论系统</h3><p>使用<a href="https://livere.com/" target="_blank" rel="noopener">来必力</a>的免费评论系统。注册后安装City版，打开<a href="https://livere.com/insight/myCode" target="_blank" rel="noopener">https://livere.com/insight/myCode</a>（一般站点），获取 LiveRe UID。打开主题配置文件<code>_config.yml</code>，编辑 编辑<code>livere_uid</code>字段，设置如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">livere_uid: <span class="comment">#your livere_uid</span></span><br></pre></td></tr></table></figure></p>
-<hr>
-<h2 id="常见问题："><a href="#常见问题：" class="headerlink" title="常见问题："></a>常见问题：</h2><h3 id="启动服务器后无法访问本地网络"><a href="#启动服务器后无法访问本地网络" class="headerlink" title="启动服务器后无法访问本地网络"></a>启动服务器后无法访问本地网络</h3><p>使用命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure></p>
-<p>启动服务器后，无法访问网址：<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a>。可能是由于<code>4000</code>端口被占用（比如福欣pdf阅读器），可以使用命令行修改端口：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s -p 5000    <span class="comment"># 此处将端口修改为5000</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="菜单栏英文变成德文或者乱码等"><a href="#菜单栏英文变成德文或者乱码等" class="headerlink" title="菜单栏英文变成德文或者乱码等"></a>菜单栏英文变成德文或者乱码等</h3><p>NexT主题中文字默认为自动选择，但是会常出现问题，建议固定一种语言。编辑站点配置文件，将language设置成你所需要的语言。例如选择简体中文：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">language: zh-Hans   <span class="comment"># 注意冒号后有一个空格</span></span><br></pre></td></tr></table></figure></p>
-<p>更多语言支持可以参见<a href="http://theme-next.iissnan.com/" target="_blank" rel="noopener">NexT中文官方</a>中语言支持。<br>更新后如果还有问题，可以参考<a href="https://www.zhihu.com/question/41625825/answer/128795760" target="_blank" rel="noopener">hexo的next主题变成 似乎是德语了，我什么也没做，原本是英语，如何解决？ - androllen的回答 - 知乎</a>:</p>
-<blockquote>
-<ol>
-<li>在hexo 文件夹里主题 next文件夹里的language 文件夹 找到 zh-Hans.yml  重命名 zh-CN.yml</li>
-<li>在hexo 文件夹里的_config.yml 修改 language: zh-CN</li>
-</ol>
-</blockquote>
-<h3 id="更换主题失败"><a href="#更换主题失败" class="headerlink" title="更换主题失败"></a>更换主题失败</h3><p>偶尔会遇到主题更换失败的情况，而且在<code>_config.yml</code>文件中已经修改好了主题名称。可以尝试在<code>themes/your_target_theme</code>目录下执行：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin master</span><br></pre></td></tr></table></figure></p>
-<hr>
-<h2 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h2><ul>
-<li>搭建基础：<ul>
-<li><a href="https://zhuanlan.zhihu.com/p/32957389" target="_blank" rel="noopener">技术小白搭建个人博客 github+hexo</a></li>
-</ul>
-</li>
-<li>优化进阶：<ul>
-<li><a href="Hexo之NexT主题搭建博客详细过程">Hexo之NexT主题搭建博客详细过程</a></li>
-</ul>
-</li>
-<li>官方指南：<ul>
-<li><a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo中文官方</a></li>
-<li><a href="http://theme-next.iissnan.com/" target="_blank" rel="noopener">NexT中文官方</a></li>
-</ul>
-</li>
-<li>优秀博客：<ul>
-<li><a href="http://javayhu.me/" target="_blank" rel="noopener">Hujiawei Bujidao</a></li>
-<li><a href="http://kenjiendo.com/" target="_blank" rel="noopener">KENJIENDO</a></li>
-<li><a href="http://iconmoon.com/" target="_blank" rel="noopener">月图志</a></li>
-</ul>
-</li>
-</ul>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/01/22/使用Hexo-Github搭建个人博客/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -493,8 +463,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
+                  <a href="/categories/语文/" itemprop="url" rel="index">
+                    <span itemprop="name">语文</span>
                   </a>
                 </span>
 
@@ -532,26 +502,10 @@
       
         
           
-            <h3 id="1-安装包下载太慢"><a href="#1-安装包下载太慢" class="headerlink" title="1. 安装包下载太慢"></a>1. 安装包下载太慢</h3><p>修改其包管理镜像为国内源，即可解决，推荐清华的源：<br><a href="http://link.zhihu.com/?target=https%3A//mirrors.tuna.tsinghua.edu.cn/help/anaconda/" target="_blank" rel="noopener">Tsinghua Open Source Mirror</a><br>安装方法有两种：</p>
-<ul>
-<li>在Anaconda Navigator主界面中选择Channels，点击Add，添加源：<img src="http://upload-images.jianshu.io/upload_images/5549241-956c8f9ad0848fd7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Channels"><img src="http://upload-images.jianshu.io/upload_images/5549241-d6f4f2aaad986901.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Add"></li>
-<li>打开目标环境中的终端terminal，使用命令行添加。简单来说就是在终端中分别运行这两个命令就好了：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --set show_channel_urls yes</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h6 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h6><ul>
-<li><a href="https://zhuanlan.zhihu.com/p/25198543" target="_blank" rel="noopener">最省心的Python版本和第三方库管理——初探Anaconda</a></li>
-</ul>
-<h3 id="2-conda-httperror-http-none-none-for-url-none-Anaconda包安装失败"><a href="#2-conda-httperror-http-none-none-for-url-none-Anaconda包安装失败" class="headerlink" title="2. conda httperror http none none for url none Anaconda包安装失败"></a>2. conda httperror http none none for url none Anaconda包安装失败</h3><p>出现这个问题选择删除源中的defaults即可，方法有多种：</p>
-<ul>
-<li>在Anaconda Navigator主界面中选择Channels，在界面右边直接删除default即可。<img src="http://upload-images.jianshu.io/upload_images/5549241-6309e886c0151ad7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
-<li>在上图的路径<code>C:\Users\Dexter\.condarc</code>（每个设备不同）中找到<code>.condarc</code>文件，删除红圈中部分后保存即可。<img src="http://upload-images.jianshu.io/upload_images/5549241-409416eca20cf807.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></li>
-<li>使用命令行，也可以删除，暂时没研究……<h6 id="参考资料：-1"><a href="#参考资料：-1" class="headerlink" title="参考资料："></a>参考资料：</h6></li>
-<li><p><a href="http://www.lqkweb.com/blog.php?id=18" target="_blank" rel="noopener">conda httperror http none none for url none Anaconda更新失败</a></p>
-<p>GitHub: <a href="https://github.com/DexterLei" target="_blank" rel="noopener">https://github.com/DexterLei</a> || github<br>微博: <a href="http://weibo.com/Dexter365" target="_blank" rel="noopener">http://weibo.com/Dexter365</a> || weibo<br>知乎: <a href="https://www.zhihu.com/people/hl" target="_blank" rel="noopener">https://www.zhihu.com/people/hl</a> ||<br>简书: <a href="https://www.jianshu.com/u/cb5cd695d7b6" target="_blank" rel="noopener">https://www.jianshu.com/u/cb5cd695d7b6</a> || book</p>
-</li>
-</ul>
-<p>social_icons:<br>  enable: true<br>  icons_only: false<br>  transition: false</p>
-<h1 id="Icon-Mappings"><a href="#Icon-Mappings" class="headerlink" title="Icon Mappings"></a>Icon Mappings</h1><p>  GitHub: github<br>  微博: weibo<br>  知乎: graduation-cap<br>  简书: book</p>
+            <p>永和九年，岁在癸丑，暮春之初，会于会稽山阴之兰亭，修禊事也。群贤毕至，少长咸集。此地有崇山峻岭，茂林修竹，又有清流激湍，映带左右，引以为流觞曲水，列坐其次。虽无丝竹管弦之盛，一觞一咏，亦足以畅叙幽情。</p>
+<p>是日也，天朗气清，惠风和畅。仰观宇宙之大，俯察品类之盛，所以游目骋怀，足以极视听之娱，信可乐也。</p>
+<p>夫人之相与，俯仰一世。或取诸怀抱，悟言一室之内；或因寄所托，放浪形骸之外。虽趣舍万殊，静躁不同，当其欣于所遇，暂得于己，快然自足，不知老之将至；及其所之既倦，情随事迁，感慨系之矣。向之所欣，俯仰之间，已为陈迹，犹不能不以之兴怀，况修短随化，终期于尽！古人云：“死生亦大矣。”岂不痛哉！</p>
+<p>每览昔人兴感之由，若合一契，未尝不临文嗟悼，不能喻之于怀。固知一死生为虚诞，齐彭殇为妄作。后之视今，亦犹今之视昔，悲夫！故列叙时人，录其所述，虽世殊事异，所以兴怀，其致一也。后之览者，亦将有感于斯文。</p>
 
           
         
@@ -776,7 +730,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
