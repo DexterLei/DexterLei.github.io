@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="深度学习,机器学习,主动学习,图像处理,CNN,医学图像分析," />
 
 
 
@@ -83,17 +83,20 @@
 
 
 
-<meta name="description" content="ktmY0FaJgU">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Dexter Lei">
-<meta property="og:url" content="http://yoursite.com/baidu_verify_ktmY0FaJgU.html">
+<meta name="description" content="写在前面此论文来自 CVPR2017 ，下载地址为：链接。">
+<meta name="keywords" content="深度学习,机器学习,主动学习,图像处理,CNN,医学图像分析">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[论文阅读]Fine-tuning Convolutional Neural Networks for Biomedical Image Analysis: Actively and Incrementally">
+<meta property="og:url" content="http://yoursite.com/2018/01/23/论文阅读-Fine-tuning-Convolutional-Neural-Networks-for-Biomedical-Image-Analysis-Actively-and-Incrementally/index.html">
 <meta property="og:site_name" content="Dexter Lei">
-<meta property="og:description" content="ktmY0FaJgU">
+<meta property="og:description" content="写在前面此论文来自 CVPR2017 ，下载地址为：链接。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-01-23T06:11:55.553Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1689929-70c4a5d4d2cc8545.png">
+<meta property="og:updated_time" content="2018-01-23T14:52:28.388Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Dexter Lei">
-<meta name="twitter:description" content="ktmY0FaJgU">
+<meta name="twitter:title" content="[论文阅读]Fine-tuning Convolutional Neural Networks for Biomedical Image Analysis: Actively and Incrementally">
+<meta name="twitter:description" content="写在前面此论文来自 CVPR2017 ，下载地址为：链接。">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/1689929-70c4a5d4d2cc8545.png">
 
 
 
@@ -123,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/baidu_verify_ktmY0FaJgU.html"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/23/论文阅读-Fine-tuning-Convolutional-Neural-Networks-for-Biomedical-Image-Analysis-Actively-and-Incrementally/"/>
 
 
 
 
 
-  <title> | Dexter Lei</title>
+  <title>[论文阅读]Fine-tuning Convolutional Neural Networks for Biomedical Image Analysis: Actively and Incrementally | Dexter Lei</title>
   
 
 
@@ -254,33 +257,257 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/23/论文阅读-Fine-tuning-Convolutional-Neural-Networks-for-Biomedical-Image-Analysis-Actively-and-Incrementally/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Dexter Lei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dexter Lei">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline"></h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          ktmY0FaJgU
+          <h1 class="post-title" itemprop="name headline">[论文阅读]Fine-tuning Convolutional Neural Networks for Biomedical Image Analysis: Actively and Incrementally</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-23T20:20:45+08:00">
+                2018-01-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/论文阅读/" itemprop="url" rel="index">
+                    <span itemprop="name">论文阅读</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/论文阅读/医学图像分析/" itemprop="url" rel="index">
+                    <span itemprop="name">医学图像分析</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p><img src="https://upload-images.jianshu.io/upload_images/1689929-70c4a5d4d2cc8545.png" alt=""></p>
+<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>此论文来自 CVPR2017 ，下载地址为：<a href="http://10.254.1.82/cache/11/03/openaccess.thecvf.com/4a6e2ed2135b4ae9ed7359d68443da74/Zhou_Fine-Tuning_Convolutional_Neural_CVPR_2017_paper.pdf" target="_blank" rel="noopener">链接</a>。<br><a id="more"></a><br>作者信息如下：</p>
+<blockquote>
+<p>作者：Zongwei Zhou | 周纵苇<br>邮箱：zongweiz@asu.edu<br>微博：<a href="https://weibo.com/ZongweiZhou" target="_blank" rel="noopener">@MrGiovanni</a><br>简书：<a href="https://www.jianshu.com/p/42801f031cfa" target="_blank" rel="noopener">Active Learning: 一个降低深度学习时间，空间，经济成本的解决方案</a></p>
+</blockquote>
+<h2 id="项目简介"><a href="#项目简介" class="headerlink" title="项目简介"></a>项目简介</h2><h3 id="论文背景"><a href="#论文背景" class="headerlink" title="论文背景"></a>论文背景</h3><p>卷积神经网络 CNN 在生物医学图像分析中得到了广泛的应用，但大量高质量标注医学图像数据的缺乏却成为其进一步发展的阻碍。生物医学图像的标注过程繁琐且耗时，不仅要求专业的知识背景而且价格昂贵。因此，是否存在一种方法，能够显著降低CNN应用与生物医学图像分析所花费的标记成本？</p>
+<blockquote>
+<p>Therefore, we seek to answer this critical question: How to dramatically reduce the cost of annotation when applying CNNs in biomedical imaging.</p>
+</blockquote>
+<h3 id="论文思路"><a href="#论文思路" class="headerlink" title="论文思路"></a>论文思路</h3><p>为了显著降低数据标注成本，作者提出了一种称为 <strong>AIFT</strong>（主动，增量式调优）的全新方法，将主动学习和迁移学习自然地整合到单一框架中。AIFT直接从一个预训练的CNN模型开始，从未标记数据中寻找“有价值”的样本用以（进一步地）标注。每一轮中，调优后的模型将使用并入新标注样本来进一步调优，从而逐渐地增强CNN的性能。</p>
+<blockquote>
+<p>Our AIFT method starts directly with a pre-trained CNN to seek “salient” samples from the unannotated for annotation, and the (fine-tuned) CNN is continuously finetuned by incrementally enlarging the training dataset with newly annotated samples. </p>
+</blockquote>
+<h3 id="算法评估"><a href="#算法评估" class="headerlink" title="算法评估"></a>算法评估</h3><p>作者在三种不同的生物医学图像应用中评估了AIFT算法，结果表明（使用这种方法）可以降低至少一半的标注成本。这种性能的体现主要归功于AIFT算法所具有的先进主动增量能力。</p>
+<blockquote>
+<p>This performance is attributed to the several advantages derived from the advanced active and incremental capability of our AIFT method.</p>
+</blockquote>
+<p>这三种应用场景包括：</p>
+<ul>
+<li>colonoscopy frame classification</li>
+<li>polyp detection</li>
+<li>pulmonary embolism(PE) detection</li>
+</ul>
+<h2 id="论文详解"><a href="#论文详解" class="headerlink" title="论文详解"></a>论文详解</h2><h2 id="一些想法"><a href="#一些想法" class="headerlink" title="一些想法"></a>一些想法</h2><ul>
+<li>是否能够构造一个小模型，输入原始数据后直接给出其“熵值”的预测，从而分辨出哪些数据“harder”，然后使用这些“harder”的数据对模型进行调优。</li>
+<li>能否直接将ImageNet Model(1000 classes)作为判别模型，用其输来构建输入数据的“熵”。</li>
+</ul>
+
       
     </div>
     
     
     
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>予子帮助 于我开心 ʕ •ᴥ•ʔ</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Dexter Lei 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Dexter Lei 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/深度学习/" rel="tag"># 深度学习</a>
+          
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+          
+            <a href="/tags/主动学习/" rel="tag"># 主动学习</a>
+          
+            <a href="/tags/图像处理/" rel="tag"># 图像处理</a>
+          
+            <a href="/tags/CNN/" rel="tag"># CNN</a>
+          
+            <a href="/tags/医学图像分析/" rel="tag"># 医学图像分析</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/22/使用Hexo-Github搭建个人博客/" rel="next" title="使用Hexo&Github搭建个人博客">
+                <i class="fa fa-chevron-left"></i> 使用Hexo&Github搭建个人博客
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -318,8 +545,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -411,6 +647,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目简介"><span class="nav-number">2.</span> <span class="nav-text">项目简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#论文背景"><span class="nav-number">2.1.</span> <span class="nav-text">论文背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#论文思路"><span class="nav-number">2.2.</span> <span class="nav-text">论文思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法评估"><span class="nav-number">2.3.</span> <span class="nav-text">算法评估</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#论文详解"><span class="nav-number">3.</span> <span class="nav-text">论文详解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些想法"><span class="nav-number">4.</span> <span class="nav-text">一些想法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
