@@ -94,7 +94,9 @@
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1689929-70c4a5d4d2cc8545.png">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1689929-4db27c91ec98d2a3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1689929-856eb8ff02f72b8c.png">
-<meta property="og:updated_time" content="2018-01-24T08:07:24.671Z">
+<meta property="og:image" content="http://www.wailian.work/images/2018/01/24/image.png">
+<meta property="og:image" content="http://www.wailian.work/images/2018/01/24/image4bb56.png">
+<meta property="og:updated_time" content="2018-01-24T10:27:52.215Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[论文阅读] Fine-tuning Convolutional Neural Networks for Biomedical Image Analysis: Actively and Incrementally">
 <meta name="twitter:description" content="写在前面此论文来自 CVPR2017 ，下载地址为：链接。">
@@ -374,7 +376,11 @@
         <p><img src="https://upload-images.jianshu.io/upload_images/1689929-70c4a5d4d2cc8545.png" alt=""></p>
 <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>此论文来自 CVPR2017 ，下载地址为：<a href="http://10.254.1.82/cache/11/03/openaccess.thecvf.com/4a6e2ed2135b4ae9ed7359d68443da74/Zhou_Fine-Tuning_Convolutional_Neural_CVPR_2017_paper.pdf" target="_blank" rel="noopener">链接</a>。<br><a id="more"></a><br>作者信息如下：</p>
 <blockquote>
-<p>作者：Zongwei Zhou | 周纵苇<br>邮箱：zongweiz@asu.edu<br>微博：<a href="https://weibo.com/ZongweiZhou" target="_blank" rel="noopener">@MrGiovanni</a><br>简书：<a href="https://www.jianshu.com/p/42801f031cfa" target="_blank" rel="noopener">Active Learning: 一个降低深度学习时间，空间，经济成本的解决方案</a></p>
+<p>作者：<a href="https://www.zongweiz.com/" target="_blank" rel="noopener">Zongwei Zhou | 周纵苇</a><br>邮箱：zongweiz@asu.edu<br>微博：<a href="https://weibo.com/ZongweiZhou" target="_blank" rel="noopener">@MrGiovanni</a></p>
+</blockquote>
+<p>论文信息如下：</p>
+<blockquote>
+<p>解读：<a href="https://www.jianshu.com/p/42801f031cfa" target="_blank" rel="noopener">Active Learning: 一个降低深度学习时间，空间，经济成本的解决方案</a><br>论文：<a href="http://openaccess.thecvf.com/content_cvpr_2017/papers/Zhou_Fine-Tuning_Convolutional_Neural_CVPR_2017_paper.pdf" target="_blank" rel="noopener">Fine-tuning Convolutional Neural Networks for Biomedical Image Analysis</a><br>海报：<a href="https://docs.wixstatic.com/ugd/deaea1_c21a4361487244efba9da9d84feddc72.pdf" target="_blank" rel="noopener">CVPR2017 Poster</a><br>代码：<a href="https://github.com/MrGiovanni/Active-Learning-CVPR2017" target="_blank" rel="noopener">Github-Matlab</a></p>
 </blockquote>
 <h2 id="项目简介"><a href="#项目简介" class="headerlink" title="项目简介"></a>项目简介</h2><h3 id="论文背景"><a href="#论文背景" class="headerlink" title="论文背景"></a>论文背景</h3><p>卷积神经网络 CNN 在生物医学图像分析中得到了广泛的应用，但大量高质量标注医学图像数据的缺乏却成为其进一步发展的阻碍。生物医学图像的标注过程繁琐且耗时，不仅要求专业的知识背景而且价格昂贵。因此，是否存在一种方法，能够显著降低CNN应用与生物医学图像分析所花费的标记成本？</p>
 <blockquote>
@@ -434,7 +440,12 @@
 <li>Computing entropy and diversity locally on a small number of patches within each candidate, saving computation time considerably (see Sec. 3.3).</li>
 </ol>
 </blockquote>
-<p>更重要地，作者的方法可能对计算机辅助医疗诊断产生重打的影响：<br>因为目前的规定要求将 CAD 系统部署在“封闭”的环境中，在这个环境中 CAD 产生的所有结果都将被检查，如果有错误将被（放射科医生）及时纠正。因此，所有的假阳性（数据）将会被抛弃，而所有的假阴性（感觉这里应该是“真阴性”）数据将被提供用以系统的实时在线反馈，使 CAD 系统能够自我学习，并通过不断的调优来提升系统部署后的性能。</p>
+<p>更重要地，作者的方法可能对计算机辅助医疗诊断产生重大的影响：<br>因为目前的规定要求将 CAD 系统部署在“封闭”的环境中，在这个环境中 CAD 产生的所有结果都将被检查，如果有错误将被（放射科医生）及时纠正。因此，所有的假阳性（数据）将会被抛弃，而所有的假阴性（感觉这里应该是“真阴性”）数据将被提供用以系统的实时在线反馈，使 CAD 系统能够自我学习，并通过不断的调优来提升系统部署后的性能。</p>
+<h2 id="附加资料"><a href="#附加资料" class="headerlink" title="附加资料"></a>附加资料</h2><p>文中作者使用 AlexNet 来进行实验验证，主要考虑到 AlexNet 网络层数足以探究 AIFT 算法在 CNN 模型上的影响，也足够小以快速完成实验验证工作。</p>
+<ul>
+<li>AlexNet 网络结构：<br><img src="http://www.wailian.work/images/2018/01/24/image.png" alt=""></li>
+<li>AlexNet 网络训练超参数设置：<br><img src="http://www.wailian.work/images/2018/01/24/image4bb56.png" alt=""></li>
+</ul>
 <h2 id="一些想法"><a href="#一些想法" class="headerlink" title="一些想法"></a>一些想法</h2><ul>
 <li>是否能够构造一个小模型，输入原始数据后直接给出其“熵值”的预测，从而分辨出哪些数据“harder”，然后使用这些“harder”的数据对模型进行调优。</li>
 <li>能否直接将ImageNet Model(1000 classes)作为判别模型，用其输来构建输入数据的“熵”。</li>
@@ -712,7 +723,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目简介"><span class="nav-number">2.</span> <span class="nav-text">项目简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#论文背景"><span class="nav-number">2.1.</span> <span class="nav-text">论文背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#论文思路"><span class="nav-number">2.2.</span> <span class="nav-text">论文思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法评估"><span class="nav-number">2.3.</span> <span class="nav-text">算法评估</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#论文详解"><span class="nav-number">3.</span> <span class="nav-text">论文详解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#思路详解"><span class="nav-number">3.1.</span> <span class="nav-text">思路详解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法优点"><span class="nav-number">3.2.</span> <span class="nav-text">算法优点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些想法"><span class="nav-number">4.</span> <span class="nav-text">一些想法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">5.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目简介"><span class="nav-number">2.</span> <span class="nav-text">项目简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#论文背景"><span class="nav-number">2.1.</span> <span class="nav-text">论文背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#论文思路"><span class="nav-number">2.2.</span> <span class="nav-text">论文思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法评估"><span class="nav-number">2.3.</span> <span class="nav-text">算法评估</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#论文详解"><span class="nav-number">3.</span> <span class="nav-text">论文详解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#思路详解"><span class="nav-number">3.1.</span> <span class="nav-text">思路详解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法优点"><span class="nav-number">3.2.</span> <span class="nav-text">算法优点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附加资料"><span class="nav-number">4.</span> <span class="nav-text">附加资料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些想法"><span class="nav-number">5.</span> <span class="nav-text">一些想法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">6.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>
