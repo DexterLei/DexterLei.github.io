@@ -92,7 +92,9 @@
 <meta property="og:description" content="写在前面此论文来自 CVPR2017 ，下载地址为：链接。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1689929-70c4a5d4d2cc8545.png">
-<meta property="og:updated_time" content="2018-01-23T14:55:57.206Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1689929-4db27c91ec98d2a3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1689929-856eb8ff02f72b8c.png">
+<meta property="og:updated_time" content="2018-01-24T08:07:24.671Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[论文阅读] Fine-tuning Convolutional Neural Networks for Biomedical Image Analysis: Actively and Incrementally">
 <meta name="twitter:description" content="写在前面此论文来自 CVPR2017 ，下载地址为：链接。">
@@ -378,7 +380,7 @@
 <blockquote>
 <p>Therefore, we seek to answer this critical question: How to dramatically reduce the cost of annotation when applying CNNs in biomedical imaging.</p>
 </blockquote>
-<h3 id="论文思路"><a href="#论文思路" class="headerlink" title="论文思路"></a>论文思路</h3><p>为了显著降低数据标注成本，作者提出了一种称为 <strong>AIFT</strong>（主动，增量式调优）的全新方法，将主动学习和迁移学习自然地整合到单一框架中。AIFT直接从一个预训练的CNN模型开始，从未标记数据中寻找“有价值”的样本用以（进一步地）标注。每一轮中，调优后的模型将使用并入新标注样本来进一步调优，从而逐渐地增强CNN的性能。</p>
+<h3 id="论文思路"><a href="#论文思路" class="headerlink" title="论文思路"></a>论文思路</h3><p>为了显著降低数据标注成本，作者提出了一种称为 <strong>AIFT</strong>（主动，增量式调优）的全新方法，将主动学习和迁移学习自然地整合到单一框架中。AIFT直接从一个预训练的CNN模型开始，从未标记数据中寻找“有价值”的样本用以（进一步地）标注。每一轮中，调优后的模型将使用并入新标注样本来进一步调优，从而逐渐地增强 CNN 的性能。</p>
 <blockquote>
 <p>Our AIFT method starts directly with a pre-trained CNN to seek “salient” samples from the unannotated for annotation, and the (fine-tuned) CNN is continuously finetuned by incrementally enlarging the training dataset with newly annotated samples. </p>
 </blockquote>
@@ -392,9 +394,62 @@
 <li>polyp detection</li>
 <li>pulmonary embolism(PE) detection</li>
 </ul>
-<h2 id="论文详解"><a href="#论文详解" class="headerlink" title="论文详解"></a>论文详解</h2><h2 id="一些想法"><a href="#一些想法" class="headerlink" title="一些想法"></a>一些想法</h2><ul>
+<h2 id="论文详解"><a href="#论文详解" class="headerlink" title="论文详解"></a>论文详解</h2><h3 id="思路详解"><a href="#思路详解" class="headerlink" title="思路详解"></a>思路详解</h3><p>为了增强卷积神经网络 CNN 在生物医学图像（分析）中的性能，医学图像样本通常在数据增强（Data Augmentation）等预处理中被分割为多个 Patch ，且同一个样本所生成的这些 Patches 享有同样的标签/标注信息。自然，这些 Patcehes 在被扩展到验证集前，在当前的 CNN 模型中应当具有相同的输出结果（实际上这些输出之间是有差异的）。</p>
+<blockquote>
+<p>这里的假设是：经过data augmentation后的patches，从CNN出来的预测值应该相对是一致的，因为它们的truth应该还是一致的。比如一张猫的图像，经过数据扩充，得到的那些个patch所对应的truth也应该都是猫。</p>
+</blockquote>
+<p>作者正是利用这些 Patches 在已有的 CNN 网络输出结果的“熵”和“多样性”来（通过某种关系）衡量这些样本之间的“Power”，这个“Power”对应样本对模型调优/提升性能的贡献程度/能力。实际上就是用“熵”与“多样性”来挑选出数据池中的“hard samples”或者“important samples”。</p>
+<blockquote>
+<p>To boost the performance of CNNs in biomedical imaging, multiple patches are usually generated automatically for each candidate through data augmentation; these patches generated from the same candidate share the same label, and are naturally expected to have similar predictions by the current CNN before they are expanded into the training dataset. As a result, their entropy and diversity provide a useful indicator to the “power” of a candidate in elevating the performance of the current CNN.</p>
+<p>定义：对于来自同一幅image的patch集，如果它们的分类结果高度不统一了，那么这个image就是Important的，或者hard sample。</p>
+<p>需要展开解释的两点：</p>
+<ul>
+<li>由于在annotation之前不知道label，所以我们不能知道网络的预测正确还是错误，但是我们可以知道预测统一还是不统一。所以比如一幅猫的图，如果网络的预测很统一都是狗，那么我们也认为这是一个easy sample，不去active select它的。</li>
+<li>结合data augmentation的优点是我们可以知道哪些patch对应什么image，比较容易控制。这样就可以在一个image內算diversity了，每个image对应一个矩阵，大小是一样的，非常的简洁，也容易控制计算量。</li>
+</ul>
+</blockquote>
+<p>但是这种自动生成的方法使样本不可避免地产生了诸多标记噪声“noisy labels”。很可能经过数据增强处理后得到的 Patches 是网络无法分类的，这里说的无法同类是之缺少特征，给任何一个网络都难以给出确切的结果，而这些 Patches 构成了样本的标记噪声。</p>
+<p>举例来讲，数据增强中的平移crop，如果我们将它应用到猫的分类问题中，很有可能得到这样的训练样本：<br><img src="https://upload-images.jianshu.io/upload_images/1689929-4db27c91ec98d2a3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700" alt=""></p>
+<blockquote>
+<p>可以看出，在这个实例中，对于一个candidate，网络预测的一致性很低，套用Diversity的公式，Diversity的值很大，也就是说，应该被认为是hard sample挑出来。但是仔细观察一下这九个patches就不难看出，即便是很好的分类器，对于中间图中的1，2，3，也是很难分出这个是猫… could be rat, rabbit, etc. 我们把像这三个 patch 的例子叫做从 data augmentation 带来的 “noisy label issue”。 而对于4～6的 patches ，网络很好地做出了分类，这很合情合理。所以我们把这种像1，2，3的 patches ，由于随机的数据扩充（Random Data Augmentation）带来的干扰样本称为“noisy labels”。</p>
+</blockquote>
+<p>为了除去系统中的噪声，作者给出了一种简便的解决方法：</p>
+<blockquote>
+<p>先计算majority的预测，然后在majority上面算diversity，只要网络的预测大方向是统一的，就是统一的。意思就是想个办法把Fig.4中的三个非主流0.1扔掉。只抓住大方向，也就是0.9——我们不希望上图这种情况被当作important sample挑出来，因为当前的分类器实际上已经可以分出来这幅图的类别啦。<br>这个改进的数学表达也非常直观，以上图为例，为了知道大方向，我们计算它们的平均值，如果大于0.5，大方向就是label 1，反之大方向是label 0，如果是前者，那么就从大到小取前25%的预测，其他的不要啦，如果是后者，就从小到大取前25%，其他的不要啦。这样Fig.4就只剩下三个0.9，它们的diversity就非常小，也就不会被当作important sample挑出来啦。成功解决了data augmentation带来的noisy label issue。</p>
+</blockquote>
+<p>具体算法流程如下：<br><img src="https://upload-images.jianshu.io/upload_images/1689929-856eb8ff02f72b8c.png" alt=""></p>
+<h3 id="算法优点"><a href="#算法优点" class="headerlink" title="算法优点"></a>算法优点</h3><ul>
+<li>可以完全从一个没有标记的数据集开始，无需种子标记样本来初始化；</li>
+<li>可以通过增量式的调优（每一轮在上一轮模型的基础上fine-tune），而不需要重复性的重训（re-training）；</li>
+<li>利用样本与其 Patches 之间的预期一致性，来从数据池中选择“有价值的”样本去要求进一步的标注；</li>
+<li>通过选择样本对应 Patches 中的某一小部分，实现自动地处理标记噪声； </li>
+<li>只需要在本地计算样本中少部分的 Patches 的“熵”与“多样性”，降低了计算量。</li>
+</ul>
+<blockquote>
+<ol>
+<li>Starting with a completely empty labeled dataset, requiring no initial seed labeled samples (see Alg. 1);</li>
+<li>Incrementally improving the learner through continuous fine-tuning rather than repeatedly re-training (see<br>Sec. 3.1);</li>
+<li>Naturally exploiting expected consistency among the patches associated for each candidate to select samples<br>“worthy” of labeling (see Sec. 3.2);</li>
+<li>Automatically handling noisy labels as only a portion (e.g., a quarter) of the patches in each candidate participate in the selection process (see Sec. 3.3);</li>
+<li>Computing entropy and diversity locally on a small number of patches within each candidate, saving computation time considerably (see Sec. 3.3).</li>
+</ol>
+</blockquote>
+<p>更重要地，作者的方法可能对计算机辅助医疗诊断产生重打的影响：<br>因为目前的规定要求将 CAD 系统部署在“封闭”的环境中，在这个环境中 CAD 产生的所有结果都将被检查，如果有错误将被（放射科医生）及时纠正。因此，所有的假阳性（数据）将会被抛弃，而所有的假阴性（感觉这里应该是“真阴性”）数据将被提供用以系统的实时在线反馈，使 CAD 系统能够自我学习，并通过不断的调优来提升系统部署后的性能。</p>
+<h2 id="一些想法"><a href="#一些想法" class="headerlink" title="一些想法"></a>一些想法</h2><ul>
 <li>是否能够构造一个小模型，输入原始数据后直接给出其“熵值”的预测，从而分辨出哪些数据“harder”，然后使用这些“harder”的数据对模型进行调优。</li>
 <li>能否直接将ImageNet Model(1000 classes)作为判别模型，用其输来构建输入数据的“熵”。</li>
+</ul>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><p>作者官博</p>
+<ul>
+<li><a href="https://www.jianshu.com/p/42801f031cfa" target="_blank" rel="noopener">Active Learning: 一个降低深度学习时间，空间，经济成本的解决方案</a></li>
+</ul>
+</li>
+<li><p>其他解读</p>
+<ul>
+<li><a href="http://blog.csdn.net/u010229231/article/details/78455017" target="_blank" rel="noopener">Fine-tuning Convolutional Neural Networks for Biomedical Image Analysis: Actively and Incrementally</a></li>
+</ul>
+</li>
 </ul>
 
       
@@ -657,7 +712,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目简介"><span class="nav-number">2.</span> <span class="nav-text">项目简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#论文背景"><span class="nav-number">2.1.</span> <span class="nav-text">论文背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#论文思路"><span class="nav-number">2.2.</span> <span class="nav-text">论文思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法评估"><span class="nav-number">2.3.</span> <span class="nav-text">算法评估</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#论文详解"><span class="nav-number">3.</span> <span class="nav-text">论文详解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些想法"><span class="nav-number">4.</span> <span class="nav-text">一些想法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目简介"><span class="nav-number">2.</span> <span class="nav-text">项目简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#论文背景"><span class="nav-number">2.1.</span> <span class="nav-text">论文背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#论文思路"><span class="nav-number">2.2.</span> <span class="nav-text">论文思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法评估"><span class="nav-number">2.3.</span> <span class="nav-text">算法评估</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#论文详解"><span class="nav-number">3.</span> <span class="nav-text">论文详解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#思路详解"><span class="nav-number">3.1.</span> <span class="nav-text">思路详解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法优点"><span class="nav-number">3.2.</span> <span class="nav-text">算法优点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些想法"><span class="nav-number">4.</span> <span class="nav-text">一些想法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">5.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>
