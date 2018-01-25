@@ -96,7 +96,7 @@
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1689929-856eb8ff02f72b8c.png">
 <meta property="og:image" content="http://www.wailian.work/images/2018/01/24/image.png">
 <meta property="og:image" content="http://www.wailian.work/images/2018/01/24/image4bb56.png">
-<meta property="og:updated_time" content="2018-01-24T10:27:52.215Z">
+<meta property="og:updated_time" content="2018-01-25T06:51:31.864Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[论文阅读] Fine-tuning Convolutional Neural Networks for Biomedical Image Analysis: Actively and Incrementally">
 <meta name="twitter:description" content="写在前面此论文来自 CVPR2017 ，下载地址为：链接。">
@@ -441,14 +441,24 @@
 </ol>
 </blockquote>
 <p>更重要地，作者的方法可能对计算机辅助医疗诊断产生重大的影响：<br>因为目前的规定要求将 CAD 系统部署在“封闭”的环境中，在这个环境中 CAD 产生的所有结果都将被检查，如果有错误将被（放射科医生）及时纠正。因此，所有的假阳性（数据）将会被抛弃，而所有的假阴性（感觉这里应该是“真阴性”）数据将被提供用以系统的实时在线反馈，使 CAD 系统能够自我学习，并通过不断的调优来提升系统部署后的性能。</p>
-<h2 id="附加资料"><a href="#附加资料" class="headerlink" title="附加资料"></a>附加资料</h2><p>文中作者使用 AlexNet 来进行实验验证，主要考虑到 AlexNet 网络层数足以探究 AIFT 算法在 CNN 模型上的影响，也足够小以快速完成实验验证工作。</p>
+<h2 id="补充材料"><a href="#补充材料" class="headerlink" title="补充材料"></a>补充材料</h2><p>文中作者使用 AlexNet 来进行实验验证，主要考虑到 AlexNet 网络层数足以探究 AIFT 算法在 CNN 模型上的影响，也足够小以快速完成实验验证工作。</p>
 <ul>
 <li>AlexNet 网络结构：<br><img src="http://www.wailian.work/images/2018/01/24/image.png" alt=""></li>
 <li>AlexNet 网络训练超参数设置：<br><img src="http://www.wailian.work/images/2018/01/24/image4bb56.png" alt=""></li>
 </ul>
-<h2 id="一些想法"><a href="#一些想法" class="headerlink" title="一些想法"></a>一些想法</h2><ul>
+<h2 id="一些想法"><a href="#一些想法" class="headerlink" title="一些想法"></a>一些想法</h2><p>这篇 CVPR2017 的论文主要是“基于池的样本选择方法”中的“基于不确定度缩减的方法”。其初始条件为已有大小为 m 的数据集 M ，在实验过程中通过对 Patches 不确定度的判定来从数据集 M 中选择出 n（n&lt;m）个数据并逐次放入数据集 N 中对模型进行调优。其本质上还是“Pool-based”的样本选择方法。<br>但是在实际情况中，我们可能目前只有 n 个有限的数据，然后会逐个增加数据，即每一轮新添加 1 个数据（+1），或者说逐次获取 p 个数据（+p），那么就会有以下几个问题：</p>
+<ul>
+<li>使用主动学习和普通监督学习，对于有限的 n 个标记数据，其最后训练得出的模型性能是否有差异。或者说，样本放入模型进行训练的顺序对模型最后的性能是否有影响（因为数据总量是固定的 n 个。）</li>
+<li>对于逐次获取 p 个数据（+p）的情况下，主动学习该如何选择？每一轮选择固定个数，还是有一个阈值作为标准，达到后就添加到训练数据池中？</li>
+<li>对于逐次获取 1 个数据（+1）的情况下，从一群数据中选择最优的已经无法起作用。那么这种基于流的数据主动学习应当如何选择？是设定一个阈值作为标准吗？那么该如何设定？</li>
+<li>作者在系统的增量式微调中，每一轮都从剩下的数据集 (M-N) 中选择最佳的 x 个数据，但假如这剩下的数据集 (M-N) 全部都是质量较差的数据的话可能会给系统模型造成负增益。所以是否应当在选择过程中设定一个阈值标准，不满足这个标准就停止调优，进入等待状态？</li>
+<li>作者的这种增量式调优算法，每一轮筛选都是在上一轮的基础上，是否存在整个系统都出现偏差呢？</li>
+</ul>
+<hr>
+<ul>
 <li>是否能够构造一个小模型，输入原始数据后直接给出其“熵值”的预测，从而分辨出哪些数据“harder”，然后使用这些“harder”的数据对模型进行调优。</li>
 <li>能否直接将ImageNet Model(1000 classes)作为判别模型，用其输来构建输入数据的“熵”。</li>
+<li>整个系统是先基于池的算法然后是基于流的算法？</li>
 </ul>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
 <li><p>作者官博</p>
@@ -723,7 +733,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目简介"><span class="nav-number">2.</span> <span class="nav-text">项目简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#论文背景"><span class="nav-number">2.1.</span> <span class="nav-text">论文背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#论文思路"><span class="nav-number">2.2.</span> <span class="nav-text">论文思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法评估"><span class="nav-number">2.3.</span> <span class="nav-text">算法评估</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#论文详解"><span class="nav-number">3.</span> <span class="nav-text">论文详解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#思路详解"><span class="nav-number">3.1.</span> <span class="nav-text">思路详解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法优点"><span class="nav-number">3.2.</span> <span class="nav-text">算法优点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附加资料"><span class="nav-number">4.</span> <span class="nav-text">附加资料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些想法"><span class="nav-number">5.</span> <span class="nav-text">一些想法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">6.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目简介"><span class="nav-number">2.</span> <span class="nav-text">项目简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#论文背景"><span class="nav-number">2.1.</span> <span class="nav-text">论文背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#论文思路"><span class="nav-number">2.2.</span> <span class="nav-text">论文思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法评估"><span class="nav-number">2.3.</span> <span class="nav-text">算法评估</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#论文详解"><span class="nav-number">3.</span> <span class="nav-text">论文详解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#思路详解"><span class="nav-number">3.1.</span> <span class="nav-text">思路详解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法优点"><span class="nav-number">3.2.</span> <span class="nav-text">算法优点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#补充材料"><span class="nav-number">4.</span> <span class="nav-text">补充材料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些想法"><span class="nav-number">5.</span> <span class="nav-text">一些想法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">6.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>
