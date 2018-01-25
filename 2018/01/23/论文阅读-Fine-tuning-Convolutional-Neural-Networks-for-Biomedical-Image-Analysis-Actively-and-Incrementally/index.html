@@ -92,11 +92,12 @@
 <meta property="og:description" content="写在前面此论文来自 CVPR2017 ，下载地址为：链接。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1689929-70c4a5d4d2cc8545.png">
+<meta property="og:image" content="http://img.blog.csdn.net/20171230002812192">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1689929-4db27c91ec98d2a3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1689929-856eb8ff02f72b8c.png">
 <meta property="og:image" content="http://www.wailian.work/images/2018/01/24/image.png">
 <meta property="og:image" content="http://www.wailian.work/images/2018/01/24/image4bb56.png">
-<meta property="og:updated_time" content="2018-01-25T06:51:31.864Z">
+<meta property="og:updated_time" content="2018-01-25T15:44:01.363Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[论文阅读] Fine-tuning Convolutional Neural Networks for Biomedical Image Analysis: Actively and Incrementally">
 <meta name="twitter:description" content="写在前面此论文来自 CVPR2017 ，下载地址为：链接。">
@@ -372,7 +373,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,911 字
+                  3,270 字
                 </span>
               
 
@@ -388,7 +389,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  11 分钟
+                  12 分钟
                 </span>
               
             </div>
@@ -418,6 +419,7 @@
 <blockquote>
 <p>解读：<a href="https://www.jianshu.com/p/42801f031cfa" target="_blank" rel="noopener">Active Learning: 一个降低深度学习时间，空间，经济成本的解决方案</a><br>论文：<a href="http://openaccess.thecvf.com/content_cvpr_2017/papers/Zhou_Fine-Tuning_Convolutional_Neural_CVPR_2017_paper.pdf" target="_blank" rel="noopener">Fine-tuning Convolutional Neural Networks for Biomedical Image Analysis</a><br>海报：<a href="https://docs.wixstatic.com/ugd/deaea1_c21a4361487244efba9da9d84feddc72.pdf" target="_blank" rel="noopener">CVPR2017 Poster</a><br>代码：<a href="https://github.com/MrGiovanni/Active-Learning-CVPR2017" target="_blank" rel="noopener">Github-Matlab</a></p>
 </blockquote>
+<p><img src="http://img.blog.csdn.net/20171230002812192" alt=""></p>
 <h2 id="项目简介"><a href="#项目简介" class="headerlink" title="项目简介"></a>项目简介</h2><h3 id="论文背景"><a href="#论文背景" class="headerlink" title="论文背景"></a>论文背景</h3><p>卷积神经网络 CNN 在生物医学图像分析中得到了广泛的应用，但大量高质量标注医学图像数据的缺乏却成为其进一步发展的阻碍。生物医学图像的标注过程繁琐且耗时，不仅要求专业的知识背景而且价格昂贵。因此，是否存在一种方法，能够显著降低CNN应用与生物医学图像分析所花费的标记成本？</p>
 <blockquote>
 <p>Therefore, we seek to answer this critical question: How to dramatically reduce the cost of annotation when applying CNNs in biomedical imaging.</p>
@@ -489,6 +491,16 @@
 <li>对于逐次获取 1 个数据（+1）的情况下，从一群数据中选择最优的已经无法起作用。那么这种基于流的数据主动学习应当如何选择？是设定一个阈值作为标准吗？那么该如何设定？</li>
 <li>作者在系统的增量式微调中，每一轮都从剩下的数据集 (M-N) 中选择最佳的 x 个数据，但假如这剩下的数据集 (M-N) 全部都是质量较差的数据的话可能会给系统模型造成负增益。所以是否应当在选择过程中设定一个阈值标准，不满足这个标准就停止调优，进入等待状态？</li>
 <li>作者的这种增量式调优算法，每一轮筛选都是在上一轮的基础上，是否存在整个系统都出现偏差呢？</li>
+<li>作者最后得出结论使用50%的数据集即可实现较好的训练结果，那是否意味着剩下的50%的数据就是没有价值的？<ul>
+<li>假如使用剩下的50%数据集来训练网络，能取得什么样的效果？</li>
+<li>对这剩下的50%的数据集也应用主动学习，或者说给其“重要性”排个序后，按次序投进网络训练，能取得什么样的效果？</li>
+</ul>
+</li>
+<li>是否能构造一个通用性标准，在数据进入网络训练之前先给其排序，然后按照数据样本的“重要性”指标，按顺序或者按照相反的顺寻对模型进行训练，是否有差异？</li>
+<li>使用作者的 AITF 算法对数据进行逐轮的选择，最后所有的数据将根据每一轮选择中的“重要性”进行排列，得到一个序列。那么对于一个固定的数据集，这个序列是否是固定的？亦或是有差异？有什么样的差异？<ul>
+<li>假如说存在这个序列，那么直接将数据集按照序列正序或者反序按照流的方法对模型进行训练，其训练结果是否有差异？</li>
+</ul>
+</li>
 </ul>
 <hr>
 <ul>
@@ -505,6 +517,9 @@
 <li><p>其他解读</p>
 <ul>
 <li><a href="http://blog.csdn.net/u010229231/article/details/78455017" target="_blank" rel="noopener">Fine-tuning Convolutional Neural Networks for Biomedical Image Analysis: Actively and Incrementally</a></li>
+<li>Houchaoqun_XMU：<a href="http://blog.csdn.net/Houchaoqun_XMU/article/details/78874834" target="_blank" rel="noopener">Fine-tuning Convolutional Neural Networks for Biomedical Image Analysis: Actively and Incrementally</a></li>
+<li><a href="http://blog.csdn.net/xinrui_zhuang/article/details/79017750" target="_blank" rel="noopener">CVPR2017论文阅读：Fine-tuning Convolutional Neural Networks for Biomedical Image Analysis</a></li>
+<li><a href="http://blog.csdn.net/u014380165/article/details/76946425" target="_blank" rel="noopener">CVPR2017-如何在无标签数据集上训练模型</a></li>
 </ul>
 </li>
 </ul>
