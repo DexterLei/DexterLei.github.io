@@ -97,7 +97,7 @@
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1689929-856eb8ff02f72b8c.png">
 <meta property="og:image" content="http://www.wailian.work/images/2018/01/24/image.png">
 <meta property="og:image" content="http://www.wailian.work/images/2018/01/24/image4bb56.png">
-<meta property="og:updated_time" content="2018-01-25T15:44:01.363Z">
+<meta property="og:updated_time" content="2018-01-25T16:30:14.710Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[论文阅读] Fine-tuning Convolutional Neural Networks for Biomedical Image Analysis: Actively and Incrementally">
 <meta name="twitter:description" content="写在前面此论文来自 CVPR2017 ，下载地址为：链接。">
@@ -373,7 +373,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3,270 字
+                  3,425 字
                 </span>
               
 
@@ -389,7 +389,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  12 分钟
+                  13 分钟
                 </span>
               
             </div>
@@ -499,6 +499,17 @@
 <li>是否能构造一个通用性标准，在数据进入网络训练之前先给其排序，然后按照数据样本的“重要性”指标，按顺序或者按照相反的顺寻对模型进行训练，是否有差异？</li>
 <li>使用作者的 AITF 算法对数据进行逐轮的选择，最后所有的数据将根据每一轮选择中的“重要性”进行排列，得到一个序列。那么对于一个固定的数据集，这个序列是否是固定的？亦或是有差异？有什么样的差异？<ul>
 <li>假如说存在这个序列，那么直接将数据集按照序列正序或者反序按照流的方法对模型进行训练，其训练结果是否有差异？</li>
+</ul>
+</li>
+<li>假如说数据样本参加训练的顺序对模型最后的性能有影响的话，我们如何在一般的任务中给数据进行排序？让其能够实现模型精度的最大化？<ul>
+<li>Q-learning 强化学习能否作为手段去寻找数据顺序的最优解？<ul>
+<li><a href="http://blog.csdn.net/itplus/article/details/9361915" target="_blank" rel="noopener">A Painless Q-learning Tutorial (一个 Q-learning 算法的简明教程)</a></li>
+</ul>
+</li>
+<li><strong><em>结合强化学习与主动学习？</em></strong><ul>
+<li>强化学习解决主动学习中对数据的判别问题，假如为负增益，还赋予强化学习后退的能力，即后退到原来的节点。</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -804,7 +815,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2018.01.22 &mdash; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -814,15 +825,9 @@
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
 
 
 
