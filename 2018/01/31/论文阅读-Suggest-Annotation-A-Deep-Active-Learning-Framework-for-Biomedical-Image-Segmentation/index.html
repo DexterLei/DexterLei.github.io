@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="深度学习,机器学习,主动学习,图像处理,医学图像分析,FCN," />
 
 
 
@@ -83,17 +83,18 @@
 
 
 
-<meta name="description" content="Dexter&apos;s Blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="http://yoursite.com/categories/index.html">
+<meta name="description" content="论文摘要图像分割是生物医学图像分析中的基础问题。近年来，深度学习在生物医学图像分割领域取得了前所未有的前沿成果。然而，考虑到生物医学图像的异型性（不同的模式、图像格式、噪声、对象等），在一个全新的领域应用深度学习往往需要大量的训练数据。而生物医学图像数据只有经验丰富的专业医生才有能力去标注，且通常一个病例包含大量的样本需要标注，这意味着高昂的标注成本与时间消耗。在本文中，我们旨在解决如下问题：在有">
+<meta name="keywords" content="深度学习,机器学习,主动学习,图像处理,医学图像分析,FCN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[论文阅读] Suggest Annotation: A Deep Active Learning Framework for Biomedical Image Segmentation">
+<meta property="og:url" content="http://yoursite.com/2018/01/31/论文阅读-Suggest-Annotation-A-Deep-Active-Learning-Framework-for-Biomedical-Image-Segmentation/index.html">
 <meta property="og:site_name" content="Dexter Lei">
-<meta property="og:description" content="Dexter&apos;s Blog">
+<meta property="og:description" content="论文摘要图像分割是生物医学图像分析中的基础问题。近年来，深度学习在生物医学图像分割领域取得了前所未有的前沿成果。然而，考虑到生物医学图像的异型性（不同的模式、图像格式、噪声、对象等），在一个全新的领域应用深度学习往往需要大量的训练数据。而生物医学图像数据只有经验丰富的专业医生才有能力去标注，且通常一个病例包含大量的样本需要标注，这意味着高昂的标注成本与时间消耗。在本文中，我们旨在解决如下问题：在有">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-01-23T05:07:06.371Z">
+<meta property="og:updated_time" content="2018-01-31T08:16:45.870Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
-<meta name="twitter:description" content="Dexter&apos;s Blog">
+<meta name="twitter:title" content="[论文阅读] Suggest Annotation: A Deep Active Learning Framework for Biomedical Image Segmentation">
+<meta name="twitter:description" content="论文摘要图像分割是生物医学图像分析中的基础问题。近年来，深度学习在生物医学图像分割领域取得了前所未有的前沿成果。然而，考虑到生物医学图像的异型性（不同的模式、图像格式、噪声、对象等），在一个全新的领域应用深度学习往往需要大量的训练数据。而生物医学图像数据只有经验丰富的专业医生才有能力去标注，且通常一个病例包含大量的样本需要标注，这意味着高昂的标注成本与时间消耗。在本文中，我们旨在解决如下问题：在有">
 
 
 
@@ -123,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/31/论文阅读-Suggest-Annotation-A-Deep-Active-Learning-Framework-for-Biomedical-Image-Segmentation/"/>
 
 
 
 
 
-  <title>categories | Dexter Lei</title>
+  <title>[论文阅读] Suggest Annotation: A Deep Active Learning Framework for Biomedical Image Segmentation | Dexter Lei</title>
   
 
 
@@ -254,40 +255,271 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/31/论文阅读-Suggest-Annotation-A-Deep-Active-Learning-Framework-for-Biomedical-Image-Segmentation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Dexter Lei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dexter Lei">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">categories</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                目前共计 9 个分类
+          <h1 class="post-title" itemprop="name headline">[论文阅读] Suggest Annotation: A Deep Active Learning Framework for Biomedical Image Segmentation</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-31T15:49:46+08:00">
+                2018-01-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/论文阅读/" itemprop="url" rel="index">
+                    <span itemprop="name">论文阅读</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/论文阅读/医学图像分析/" itemprop="url" rel="index">
+                    <span itemprop="name">医学图像分析</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>Views
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  302 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1 分钟
+                </span>
+              
             </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/博客/">博客</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/博客/Hexo/">Hexo</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/博客/Hexo/Next/">Next</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/编程/Python/">Python</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/论文阅读/">论文阅读</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/论文阅读/医学图像分析/">医学图像分析</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/语文/">语文</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/语文/文言文/">文言文</a><span class="category-list-count">1</span></li></ul></li></ul>
-            </div>
-          </div>
-        
-      </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h2 id="论文摘要"><a href="#论文摘要" class="headerlink" title="论文摘要"></a>论文摘要</h2><p>图像分割是生物医学图像分析中的基础问题。近年来，深度学习在生物医学图像分割领域取得了前所未有的前沿成果。然而，考虑到生物医学图像的异型性（不同的模式、图像格式、噪声、对象等），在一个全新的领域应用深度学习往往需要大量的训练数据。而生物医学图像数据只有经验丰富的专业医生才有能力去标注，且通常一个病例包含大量的样本需要标注，这意味着高昂的标注成本与时间消耗。在本文中，我们旨在解决如下问题：<strong><em>在有限的标注条件下（如，时间），哪一些数据应该被标注并能够（通过训练）取得最好的性能？</em></strong></p>
+<blockquote>
+<p>With limited effort (e.g., time) for annotation, what instances should be annotated in order to attain the best performance?</p>
+</blockquote>
+<p>（针对这个问题），作者结合全卷积网络 FCN 和主动学习，提出了一种深度主动学习模型，通过对最有效的标注区域提出明智的标注建议，以显著的降低标注成本。</p>
+
       
     </div>
     
     
     
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>予子帮助 于我开心 ʕ •ᴥ•ʔ</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Dexter Lei 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Dexter Lei 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/深度学习/" rel="tag"># 深度学习</a>
+          
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+          
+            <a href="/tags/主动学习/" rel="tag"># 主动学习</a>
+          
+            <a href="/tags/图像处理/" rel="tag"># 图像处理</a>
+          
+            <a href="/tags/医学图像分析/" rel="tag"># 医学图像分析</a>
+          
+            <a href="/tags/FCN/" rel="tag"># FCN</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/30/LeetCode-刷题笔记/" rel="next" title="LeetCode 刷题笔记">
+                <i class="fa fa-chevron-left"></i> LeetCode 刷题笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -296,6 +528,15 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMzQ3Ni8xMDAzMg=="></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -316,8 +557,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -409,6 +659,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#论文摘要"><span class="nav-number">1.</span> <span class="nav-text">论文摘要</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -598,6 +864,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
