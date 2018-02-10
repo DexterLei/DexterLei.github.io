@@ -83,18 +83,18 @@
 
 
 
-<meta name="description" content="122. Best Time to Buy and Sell Stock II  [Array] Description:  Say you have an array for which the ith element is the price of a given stock on day i. Design an algorithm to find the maximum profit. Y">
+<meta name="description" content="122. Best Time to Buy and Sell Stock II  [Array] Description: Say you have an array for which the ith element is the price of a given stock on day i. Design an algorithm to find the maximum profit. Yo">
 <meta name="keywords" content="LeetCode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode 刷题笔记">
 <meta property="og:url" content="http://yoursite.com/2018/01/30/LeetCode-刷题笔记/index.html">
 <meta property="og:site_name" content="Dexter Lei">
-<meta property="og:description" content="122. Best Time to Buy and Sell Stock II  [Array] Description:  Say you have an array for which the ith element is the price of a given stock on day i. Design an algorithm to find the maximum profit. Y">
+<meta property="og:description" content="122. Best Time to Buy and Sell Stock II  [Array] Description: Say you have an array for which the ith element is the price of a given stock on day i. Design an algorithm to find the maximum profit. Yo">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-02-10T11:31:48.727Z">
+<meta property="og:updated_time" content="2018-02-10T11:33:58.217Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 刷题笔记">
-<meta name="twitter:description" content="122. Best Time to Buy and Sell Stock II  [Array] Description:  Say you have an array for which the ith element is the price of a given stock on day i. Design an algorithm to find the maximum profit. Y">
+<meta name="twitter:description" content="122. Best Time to Buy and Sell Stock II  [Array] Description: Say you have an array for which the ith element is the price of a given stock on day i. Design an algorithm to find the maximum profit. Yo">
 
 
 
@@ -404,13 +404,14 @@
 
       
         <h2 id="122-Best-Time-to-Buy-and-Sell-Stock-II-Array"><a href="#122-Best-Time-to-Buy-and-Sell-Stock-II-Array" class="headerlink" title="122. Best Time to Buy and Sell Stock II  [Array]"></a>122. Best Time to Buy and Sell Stock II  [Array]</h2><ul>
-<li><p>Description:</p>
-<blockquote>
+<li>Description:<blockquote>
 <p>Say you have an array for which the ith element is the price of a given stock on day i.</p>
 <p>Design an algorithm to find the maximum profit. You may complete as many transactions as you like (ie, buy one and sell one share of the stock multiple times). However, you may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).</p>
-<a id="more"></a>
 </blockquote>
 </li>
+</ul>
+<a id="more"></a>
+<ul>
 <li><p>Hints:<br>因为股票只能在卖出后才能买入，因此只能“做多”，即所有的收益均来自于股票上涨所得。所以，股票每上涨一次，即可获得一次收益。不难得知，最大收益在每个上涨阶段都交易时产生。（对应股市中指数波动较大时，反而能够为短线交易提供大量收益的交易基础）<br>因此，算法首先判断下一个时间点是否比当前时间点的<code>price</code>更高，其（+）差值，即为单次交易所得；将所有这样的交易所得求和，即可得到总收益，即最大收益。</p>
 </li>
 <li><p>Submissions:</p>
