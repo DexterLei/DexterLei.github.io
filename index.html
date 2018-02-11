@@ -1561,80 +1561,14 @@
 
       
         
-          
-            <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>本文最早于<strong> 2017.07.15 11:40 </strong>发布于<a href="https://www.jianshu.com/p/df72e25928c0" target="_blank" rel="noopener">简书</a>，现将其转移到个人博客上，并修改日期为初始发布日期。<br><strong>深度学习平台与环境配置详解</strong>系列文章包括：</p>
-<ul>
-<li><a href="https://www.dexterlei.com/2017/07/15/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%B9%B3%E5%8F%B0%E4%B8%8E%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E8%AF%A6%E8%A7%A3-%E7%A1%AC%E4%BB%B6%E9%80%89%E8%B4%AD%E4%B8%8E%E7%BB%84%E8%A3%85/" target="_blank" rel="noopener">深度学习平台与环境配置详解-硬件选购与组装</a> | <a href="https://www.jianshu.com/p/df72e25928c0" target="_blank" rel="noopener">简书</a> | <a href="https://zhuanlan.zhihu.com/p/28007891" target="_blank" rel="noopener">知乎</a></li>
-<li><a href="link">深度学习平台与环境配置详解-Win&amp;Ubuntu双系统与显卡驱动安装</a></li>
-<li><a href="link">深度学习平台与环境配置详解-CUDA&amp;Cudnn安装</a></li>
-<li><a href="link">深度学习平台与环境配置详解-Ubuntu上基于Anaconda的TensorFlow安装</a></li>
-</ul>
-<h2 id="硬件选购"><a href="#硬件选购" class="headerlink" title="硬件选购"></a>硬件选购</h2><p>研究需求，遂组装一台全新的计算机，安装Ubuntu，用来运行TensorFlow，同时保留Win10，方便其他其他场合使用。因为硬件更新换代很快，各种网络结构也层出不穷。因此，考虑使用多显卡来提升系统的计算能力是有必要的。现阶段，主要购买单块显卡实现整个系统的搭建，同时保留拓展（多显卡）空间。<br>硬件采购清单如下：<br><img src="https://upload-images.jianshu.io/upload_images/5549241-f8270ca07f96a482.png" alt="" title="BOM"><br>以上配置总共花费24173.1元人民币，购买时间主要在2017年6月底7月初，没能赶上京东618的活动，顺便不幸的碰到了显卡缺货，所以价格上仅供参考。</p>
-<h3 id="主板"><a href="#主板" class="headerlink" title="主板"></a>主板</h3><p>因为考虑到系统有可能拓展四块显卡，因此主板首先需要支持4-Way NVIDA SLI功能，通常单块显卡占用16条PCIE通道，四块显卡则需要16<em>4=64条PCIE通路，而常见的i7处理器中的高端型号最高只有40条PCIE通道，因此理论上的处理方法是需要使用两块CPU实现双通道处理。<a href="https://item.jd.com/12380611538.html#crumb-wrap" target="_blank" rel="noopener">京东</a>上就有使用双路E5配合4路1080Ti所搭建的深度学习主机。<br><img src="https://upload-images.jianshu.io/upload_images/5549241-fc17f6e48f47734c.png" alt="" title="双路E5配合4路1080Ti"><br>在不考虑双路CPU的情况下，要想实现16</em>4PCIE通路，目前只有Asus X99-E WS/USB 3.1唯一一块主板可以实现PCIE通路的拓展。<br><img src="https://upload-images.jianshu.io/upload_images/5549241-b650394a9e936814.jpg" alt="" title="ASUS X99-E WS USB3.1主板说明书"><br>上图是主板说明书中的一页，显示主板共有7条PCIE接口。使用四块显卡，分别放置于1、3、5、7号PCIE接口，可以实现4*16条PCIE通道。具体实现我并不是特别清楚，但是在<a href="http://cn.soulmachine.me/2016-08-13-my-deep-learning-workstation-assemble-process-note/" target="_blank" rel="noopener">我的深度学习工作站攒机过程记录</a>中，作者也同样询问过这个问题：<br><img src="https://upload-images.jianshu.io/upload_images/5549241-8e5567aca76ac72b.png" alt="" title="Asus X99-E WS/USB 3.1"></p>
-<h3 id="CPU"><a href="#CPU" class="headerlink" title="CPU"></a>CPU</h3><p>为适配主板型号，CPU 为 LGA2011-v3 系列，同时支持最高40条 PCIE 通道。因为系统主要使用显卡进行计算，因此对CPU的要求并不是很高。<a href="http://timdettmers.com/" target="_blank" rel="noopener">Tim Dettmers</a> 在其 Blog：A Full Hardware Guide to Deep Learning 中提到 CPU 的核心数并不重要，拥有相对较高的主频即可。</p>
-<blockquote>
-<p>CPU:Two threads per GPU; full 40 PCIe lanes and correct PCIe spec (same as your motherboard); &gt; 2GHz; cache does not matter;</p>
-</blockquote>
-<p>最后决定在i7-5930K和i7-6850K中二选一，价格差距不大，遂选择主频较高的i7-6850K。<br><strong><em>注意</em></strong>：i7-6850K是不带核显的，装机前期显卡还没到，特地借了一张点亮卡用来检测装机情况。<br>各型号处理器具体参数可以在<a href="https://ark.intel.com/zh-cn/products/94188/Intel-Core-i7-6850K-Processor-15M-Cache-up-to-3_80-GHz" target="_blank" rel="noopener">Intel官方网站查询</a>与对比。<br><img src="https://upload-images.jianshu.io/upload_images/5549241-47e0bcda1645bcf6.png" alt="" title="i7-5930K&amp;i7-6850K参数对比"></p>
-<h3 id="GPU-显卡"><a href="#GPU-显卡" class="headerlink" title="GPU 显卡"></a>GPU 显卡</h3><p>并非所有的显卡都支持 CUDA，实际上仅有部分 Nvidia 高端显卡才支持，具体支持列表可前往 Nvidia 查询。</p>
-<blockquote>
-<p>CUDA(Compute Unified Device Architecture)，是显卡厂商NVIDIA推出的运算平台。 CUDA™是一种由NVIDIA推出的通用并行计算架构，该架构使GPU能够解决复杂的计算问题。</p>
-</blockquote>
-<p><img src="https://upload-images.jianshu.io/upload_images/5549241-efe2af32c543b148.png" alt="" title="TensorFlow对GPU的要求"><br>目前10系显卡横空出世，基本上深度学习主机主要可选为：Titan Xp、1080Ti、Titan、1060与Tesla系列，深度学习模型对参数精度要求并不高，因此除非土豪，可以排出Tesla系列显卡。在金钱允许但非土豪的情况下，1080Ti是目前最佳的选择。在显卡的选购过程中，肯定会遇到公版与非公版的选择问题。虽然非公版的散热较好，且自带超频，但考虑到系统的稳定性与兼容性，建议还是选择公版显卡。另外非公版显卡还可能会遇到显卡太厚主板放不下的问题。<br>在显卡的购买过程中正好遇到了显卡慌，京东上所有自营的商家全部缺货，剩下的部分显卡都在6500~7000RMB左右。不得已选择上淘宝代购，结果大部分代购商家都拿不到货，难怪大家都盼望着矿难。另外海淘显卡推荐选择EVGA，在台湾有维修点，方便保修。<br>以下图表和建议，来自于 <a href="http://timdettmers.com/2017/04/09/which-gpu-for-deep-learning/" target="_blank" rel="noopener">Which GPU(s) to Get for Deep Learning: My Experience and Advice for Using GPUs in Deep Learning</a>。<br><img src="https://upload-images.jianshu.io/upload_images/5549241-9696b105a9a573db.png" alt="" title="Normalized cost efficiency of GPUs which takes into account the price of other hardware. Here we compare a full machine, that is 4 GPUs, along with a high end hardware (CPU, motherboard etc.) worth $1500."></p>
-<blockquote>
-<ul>
-<li><strong>Best GPU overall (by a small margin)</strong>: Titan Xp</li>
-<li><strong>Cost efficient but expensive</strong>: GTX 1080 Ti, GTX 1070, GTX 1080</li>
-<li><strong>Cost efficient and cheap</strong>:  GTX 1060 (6GB)I work with data sets &gt; 250GB: GTX Titan X (Maxwell), NVIDIA Titan X Pascal, or NVIDIA Titan Xp</li>
-<li><strong>I have little money</strong>: GTX 1060 (6GB)</li>
-<li><strong>I have almost no money</strong>: GTX 1050 Ti (4GB)</li>
-<li><strong>I do Kaggle</strong>: GTX 1060 (6GB) for any “normal” competition, or GTX 1080 Ti for “deep learning competitions”</li>
-<li><strong>I am a competitive computer vision researcher</strong>: NVIDIA Titan Xp; do not upgrade from existing Titan X (Pascal or Maxwell)</li>
-<li><strong>I am a researcher</strong>: GTX 1080 Ti. In some cases, like natural language processing, a GTX 1070 or GTX 1080 might also be a solid choice — check the memory requirements of your current modelsI want to build a GPU cluster:This is really complicated, you can get some ideashereI started deep learning and I am serious about it: Start with a GTX 1060 (6GB). Depending of what area you choose next (startup, Kaggle, research, applied deep learning) sell your GTX 1060 and buy something more appropriate</li>
-<li><strong>I want to try deep learning, but I am not serious about it</strong>: GTX 1050 Ti (4 or 2GB)</li>
-</ul>
-</blockquote>
-<h3 id="机箱"><a href="#机箱" class="headerlink" title="机箱"></a>机箱</h3><p>选择 <a href="http://timdettmers.com/" target="_blank" rel="noopener">Tim Dettmers</a> 与 [NVIDIA® DIGITS™ DevBox]<a href="https://developer.nvidia.com/devbox" target="_blank" rel="noopener">https://developer.nvidia.com/devbox</a>) 同款机箱，被大多数深度学习用户所采用。<br><img src="https://upload-images.jianshu.io/upload_images/5549241-8ae9b90e1a076290.png" alt="" title="NVIDIA® DIGITS™ DevBox"></p>
-<h3 id="电源"><a href="#电源" class="headerlink" title="电源"></a>电源</h3><p>建议不要在电源上省钱，主机可能24小时运行，稳定性最重要。1600w对付4块1080Ti足以。另外：Nvidia DevBox 用的是 EVGA 1600W 80+ Gold 120-G2-1600-X1，比我买的钛金便宜点。</p>
-<h3 id="散热"><a href="#散热" class="headerlink" title="散热"></a>散热</h3><p>在风冷和水冷的选择上纠结了很久，总担心水冷过保之后会漏水，最终还是选择了风冷。直接选择京东上猫头鹰最贵的一款（NOCTUA NH-D15 CPU散热器），后期使用情况看，散热不错，噪音也不大。<br>如果选择水冷的话建议将冷排安装在AIR540机箱的顶端，这样可以避免顶端进灰。<br><strong>更新</strong>：</p>
-<ul>
-<li>这款风冷挡住了主板的第一个 PCIE 插槽，还没下单的朋友还是建议水冷吧，省地儿；</li>
-<li>多显卡（3或4）建议公版（涡轮散热）或者非公版+水冷，否则难以散热。</li>
-</ul>
-<h3 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h3><p>i7-6850K默认主频2400MHz，开启XMP之后，自动超频为3200MHz。因此建议购买DDR4 3200MHz内存条。</p>
-<blockquote>
-<p>XMP是Extreme Memory Profile的缩写，是Intel在2007年9月提出的内存认证标准，适用于DDR3和DDR4。<br>为了统一行业内的超频数值标准，而不让各个内存厂商随意设定更高的内存频率数值写入到SPD，英特尔提出了XMP认证标准。通过XMP认证的内存会在内存地址176 ~ 254中记录内存的速度设定，最多可以保存2组设定值。厂商们如需要得到XMP的认证，就必须把内存及该设定送交Intel测试，通过后就会给予认证。<br>通过XMP认证后，其SPD中除了预设普通频率数值的SPD值外，还写入了更高频率设定的SPD。这个更高频率的设定配合支持XMP的主板后可以被启用，从而将内存超频提升性能。<br>简单的说，通过了英特尔XMP认证的内存，SPD中有两个或更多频率设定档案，只要在主板中启用这些预设的XMP档案，即可将内存条自动超频到3200或更高值（根据档案设定而定）。<br>XMP与手动超频效果基本无异，所以可将其看作为内存的自动超频技术。</p>
-</blockquote>
-<h3 id="显示器"><a href="#显示器" class="headerlink" title="显示器"></a>显示器</h3><blockquote class="blockquote-center"><br>    <em>显示器就是生产力。</em><br>    <strong>Dexter Lei</strong><br></blockquote>
-
-<h3 id="鼠键"><a href="#鼠键" class="headerlink" title="鼠键"></a>鼠键</h3><p>随便买，注意系统点亮时可能无法识别无线鼠键，需要暂时使用有线鼠键。</p>
-<h3 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h3><p>若训练集庞大，建议购买较大的 SSD，HDD 可用来仓储。假如需要安装双系统，建议 SSD 512G起，HDD 可以用来当作 Win10 和 Ubuntu 的公共挂载盘。BIOS 中可以设置 raid。</p>
-<h2 id="主机组装"><a href="#主机组装" class="headerlink" title="主机组装"></a>主机组装</h2><h3 id="组装流程"><a href="#组装流程" class="headerlink" title="组装流程"></a>组装流程</h3><p>计算机组装应该是整个搭建过程中最简单的部分了，虽然我之前从来没有组装过电脑。</p>
-<ul>
-<li>第一步将CPU（注意方向）、RAM、SSD（M.2 Nvme）安装到主板上，将主板附送的主机后置面板安装到机箱上。</li>
-<li>第二步将将散热安装到CPU上，放到机箱中，确定散热器风道方向与散热器的位置，以免放不下。</li>
-<li>第三步涂硅脂，重新将确定好位置的风扇安装到CPU上。</li>
-<li>第四部将主板固定到机箱上，注意机箱上的铜柱不多也不少，避免主板下面有空余的铜柱而导致主板短路。</li>
-<li>第五步将GPU和其他pcie接口设备安装到主板与机箱上，安装磁盘阵列到机箱内，安装电源模块。</li>
-<li>第六步接线。</li>
-</ul>
-<h3 id="组装参考"><a href="#组装参考" class="headerlink" title="组装参考"></a>组装参考</h3><ul>
-<li><a href="https://www.zhihu.com/question/19912421" target="_blank" rel="noopener">知乎：如何配组装电脑？</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/24178025" target="_blank" rel="noopener">知乎：《关于组装电脑的一些常识》</a></li>
-<li><a href="https://www.bilibili.com/video/av8536529/" target="_blank" rel="noopener">【极客湾】萌妹子带你装电脑（萌新向）</a></li>
-</ul>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
-<li><a href="https://www.zhihu.com/question/33996159?sort=created" target="_blank" rel="noopener">知乎：如何配置一台适用于深度学习的工作站？</a></li>
-<li><a href="http://cn.soulmachine.me/2016-08-13-my-deep-learning-workstation-assemble-process-note/" target="_blank" rel="noopener">我的深度学习工作站攒机过程记录</a></li>
-<li><a href="http://www.52nlp.cn/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%BB%E6%9C%BA%E6%94%92%E6%9C%BA%E5%B0%8F%E8%AE%B0" target="_blank" rel="noopener">我爱自然语言处理：深度学习主机攒机小记</a></li>
-<li><a href="http://www.sohu.com/a/114876547_465975" target="_blank" rel="noopener">深度 | 从硬件配置到软件安装，一台深度学习机器的配备指南</a></li>
-<li><a href="http://wh1te.me/index.php/2016/07/02/build-a-dl-platform/" target="_blank" rel="noopener">搭建一台用于深度学习的工作站</a></li>
-<li><a href="http://timdettmers.com/2017/04/09/which-gpu-for-deep-learning/" target="_blank" rel="noopener">Tim Dettmers：Which GPU(s) to Get for Deep Learning: My Experience and Advice for Using GPUs in Deep Learning</a></li>
-<li><a href="http://timdettmers.com/2015/03/09/deep-learning-hardware-guide/" target="_blank" rel="noopener">Tim Dettmers：A Full Hardware Guide to Deep Learning</a></li>
-<li><a href="http://guanghan.info/blog/en/my-works/building-our-personal-deep-learning-rig-gtx-1080-ubuntu-16-04-cuda-8-0rc-cudnn-7-tensorflowmxnetcaffedarknet/" target="_blank" rel="noopener">Build Personal Deep Learning Rig: GTX 1080 + Ubuntu 16.04 + CUDA 8.0RC + CuDnn 7 + Tensorflow/Mxnet/Caffe/Darknet</a></li>
-</ul>
-
-          
+          <p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=29453187&auto=0&height=66"></iframe><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/15/深度学习平台与环境配置详解-硬件选购与组装/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
