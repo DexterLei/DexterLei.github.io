@@ -90,7 +90,7 @@
 <meta property="og:site_name" content="Dexter Lei">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://blog.geohey.com/content/images/2017/10/---_meitu_0.jpg">
-<meta property="og:updated_time" content="2018-02-23T04:19:54.036Z">
+<meta property="og:updated_time" content="2018-02-24T09:25:34.310Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习&#x2F;深度学习 基础概念">
 <meta name="twitter:image" content="http://blog.geohey.com/content/images/2017/10/---_meitu_0.jpg">
@@ -364,7 +364,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  197 字
+                  221 字
                 </span>
               
 
@@ -407,7 +407,9 @@
 <p>语义分割就是将像素按照图像中表达语义含义的不同进行分组（Grouping）/分割（Segmentation）。</p>
 </blockquote>
 <p><img src="http://blog.geohey.com/content/images/2017/10/---_meitu_0.jpg" alt="" title="语义分割"><br>比如从上图中我们可以看到有“人”骑“自行车”，其中包含两个语义对象，分别是“人”和“自行车”，因此语义分割通过检测并使用不同的颜色按照像素分布将其中的人和自行车分别标注出来。语义分割后的图像一般包含若干种颜色的区域，每一种颜色都代表一类。</p>
-<h3 id="目标检测-object-detection"><a href="#目标检测-object-detection" class="headerlink" title="目标检测(object detection)"></a>目标检测(object detection)</h3><h3 id="目标识别-object-recognition"><a href="#目标识别-object-recognition" class="headerlink" title="目标识别(object recognition)"></a>目标识别(object recognition)</h3><h3 id="实例分割-instance-segmentation"><a href="#实例分割-instance-segmentation" class="headerlink" title="实例分割(instance segmentation)"></a>实例分割(instance segmentation)</h3>
+<h3 id="目标检测-object-detection"><a href="#目标检测-object-detection" class="headerlink" title="目标检测(object detection)"></a>目标检测(object detection)</h3><h3 id="目标识别-object-recognition"><a href="#目标识别-object-recognition" class="headerlink" title="目标识别(object recognition)"></a>目标识别(object recognition)</h3><h3 id="实例分割-instance-segmentation"><a href="#实例分割-instance-segmentation" class="headerlink" title="实例分割(instance segmentation)"></a>实例分割(instance segmentation)</h3><h2 id="常见度量"><a href="#常见度量" class="headerlink" title="常见度量"></a>常见度量</h2><h3 id="IoU-Intersection-over-Union-交除并"><a href="#IoU-Intersection-over-Union-交除并" class="headerlink" title="IoU (Intersection-over-Union) 交除并"></a>IoU (Intersection-over-Union) 交除并</h3><p>$$E=mc^2$$</p>
+<p>$$IOU = \frac{DetectionResult \bigcap Ground Truth }{DetectionResult \bigcup Ground Truth}$$</p>
+
       
     </div>
     
@@ -666,7 +668,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见任务"><span class="nav-number">2.</span> <span class="nav-text">常见任务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语义分割-semantic-segmentation"><span class="nav-number">2.1.</span> <span class="nav-text">语义分割(semantic segmentation)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#目标检测-object-detection"><span class="nav-number">2.2.</span> <span class="nav-text">目标检测(object detection)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#目标识别-object-recognition"><span class="nav-number">2.3.</span> <span class="nav-text">目标识别(object recognition)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例分割-instance-segmentation"><span class="nav-number">2.4.</span> <span class="nav-text">实例分割(instance segmentation)</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见任务"><span class="nav-number">2.</span> <span class="nav-text">常见任务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语义分割-semantic-segmentation"><span class="nav-number">2.1.</span> <span class="nav-text">语义分割(semantic segmentation)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#目标检测-object-detection"><span class="nav-number">2.2.</span> <span class="nav-text">目标检测(object detection)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#目标识别-object-recognition"><span class="nav-number">2.3.</span> <span class="nav-text">目标识别(object recognition)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例分割-instance-segmentation"><span class="nav-number">2.4.</span> <span class="nav-text">实例分割(instance segmentation)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见度量"><span class="nav-number">3.</span> <span class="nav-text">常见度量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IoU-Intersection-over-Union-交除并"><span class="nav-number">3.1.</span> <span class="nav-text">IoU (Intersection-over-Union) 交除并</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -945,6 +947,8 @@
   
 
   
+  
+
 
   
 
