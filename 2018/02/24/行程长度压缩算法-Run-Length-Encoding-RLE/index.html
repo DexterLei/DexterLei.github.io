@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="Github,Hexo,Markdown,NexT,Coding," />
+  <meta name="keywords" content="机器学习,Kaggle,RLE," />
 
 
 
@@ -83,25 +83,18 @@
 
 
 
-<meta name="description" content="写在前面考虑到潜在 Github 无法访问的风险，以及有利于百度 SEO，遂将个人博客同时部署到 Coding 和 Github （的 Page ）上。当从国内访问我的博客时，域名指向 Coding，反之指向 Github。">
-<meta name="keywords" content="Github,Hexo,Markdown,NexT,Coding">
+<meta name="description" content="写在前面最近在 Kaggle 竞赛中发现部分数据的提交需要使用行程长度压缩算法进行预压缩，所以查阅了相关资料，在此记录之。  In order to reduce the submission file size, our metric uses run-length encoding on the pixel values. Instead of submitting an exhaustive">
+<meta name="keywords" content="机器学习,Kaggle,RLE">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用 Github&amp;Coding 双线部署个人博客">
-<meta property="og:url" content="http://yoursite.com/2018/02/11/使用-Github-Coding-双线部署个人博客/index.html">
+<meta property="og:title" content="行程长度压缩算法(Run Length Encoding,RLE)">
+<meta property="og:url" content="http://yoursite.com/2018/02/24/行程长度压缩算法-Run-Length-Encoding-RLE/index.html">
 <meta property="og:site_name" content="Dexter Lei">
-<meta property="og:description" content="写在前面考虑到潜在 Github 无法访问的风险，以及有利于百度 SEO，遂将个人博客同时部署到 Coding 和 Github （的 Page ）上。当从国内访问我的博客时，域名指向 Coding，反之指向 Github。">
+<meta property="og:description" content="写在前面最近在 Kaggle 竞赛中发现部分数据的提交需要使用行程长度压缩算法进行预压缩，所以查阅了相关资料，在此记录之。  In order to reduce the submission file size, our metric uses run-length encoding on the pixel values. Instead of submitting an exhaustive">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://www.wailian.work/images/2018/02/11/image.png">
-<meta property="og:image" content="http://www.wailian.work/images/2018/02/11/imagea144c.png">
-<meta property="og:image" content="http://www.wailian.work/images/2018/02/11/image4aa95.png">
-<meta property="og:image" content="http://www.wailian.work/images/2018/02/11/imagea052b.png">
-<meta property="og:image" content="http://www.wailian.work/images/2018/02/11/image3e30e.png">
-<meta property="og:image" content="http://www.wailian.work/images/2018/02/11/image82fba.png">
-<meta property="og:updated_time" content="2018-02-13T03:52:07.864Z">
+<meta property="og:updated_time" content="2018-02-24T08:46:56.961Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用 Github&amp;Coding 双线部署个人博客">
-<meta name="twitter:description" content="写在前面考虑到潜在 Github 无法访问的风险，以及有利于百度 SEO，遂将个人博客同时部署到 Coding 和 Github （的 Page ）上。当从国内访问我的博客时，域名指向 Coding，反之指向 Github。">
-<meta name="twitter:image" content="http://www.wailian.work/images/2018/02/11/image.png">
+<meta name="twitter:title" content="行程长度压缩算法(Run Length Encoding,RLE)">
+<meta name="twitter:description" content="写在前面最近在 Kaggle 竞赛中发现部分数据的提交需要使用行程长度压缩算法进行预压缩，所以查阅了相关资料，在此记录之。  In order to reduce the submission file size, our metric uses run-length encoding on the pixel values. Instead of submitting an exhaustive">
 
 
 
@@ -131,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/02/11/使用-Github-Coding-双线部署个人博客/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/02/24/行程长度压缩算法-Run-Length-Encoding-RLE/"/>
 
 
 
 
 
-  <title>使用 Github&Coding 双线部署个人博客 | Dexter Lei</title>
+  <title>行程长度压缩算法(Run Length Encoding,RLE) | Dexter Lei</title>
   
 
 
@@ -284,7 +277,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/11/使用-Github-Coding-双线部署个人博客/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/24/行程长度压缩算法-Run-Length-Encoding-RLE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dexter Lei">
@@ -301,7 +294,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">使用 Github&Coding 双线部署个人博客</h1>
+          <h1 class="post-title" itemprop="name headline">行程长度压缩算法(Run Length Encoding,RLE)</h1>
         
 
         <div class="post-meta">
@@ -313,8 +306,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-11T14:30:28+08:00">
-                2018-02-11
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-24T16:17:45+08:00">
+                2018-02-24
               </time>
             
 
@@ -336,30 +329,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/博客/" itemprop="url" rel="index">
-                    <span itemprop="name">博客</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/博客/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/博客/Hexo/Next/" itemprop="url" rel="index">
-                    <span itemprop="name">Next</span>
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
                   </a>
                 </span>
 
@@ -394,7 +365,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  734 字
+                  426 字
                 </span>
               
 
@@ -410,7 +381,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3 分钟
+                  2 分钟
                 </span>
               
             </div>
@@ -431,32 +402,20 @@
       
 
       
-        <p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=17423737&auto=0&height=66"></iframe></p>
-<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>考虑到潜在 Github 无法访问的风险，以及有利于百度 SEO，遂将个人博客同时部署到 <a href="https://coding.net" target="_blank" rel="noopener">Coding</a> 和 Github （的 Page ）上。当从国内访问我的博客时，域名指向 Coding，反之指向 Github。<br><a id="more"></a></p>
-<h2 id="Coding-设置"><a href="#Coding-设置" class="headerlink" title="Coding 设置"></a>Coding 设置</h2><h3 id="创建静态-Coding-Pages"><a href="#创建静态-Coding-Pages" class="headerlink" title="创建静态 Coding Pages"></a>创建静态 Coding Pages</h3><blockquote>
-<p>新建一个名为 {user_name}.coding.me 的项目。{user_name} 您本人的用户名（非昵称），使用其他人的用户名创建的项目不会被归为『用户 Pages』类型。​</p>
+        <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>最近在 <a href="https://www.kaggle.com/c/data-science-bowl-2018#evaluation" target="_blank" rel="noopener">Kaggle</a> 竞赛中发现部分数据的提交需要使用行程长度压缩算法进行预压缩，所以查阅了相关资料，在此记录之。</p>
 <blockquote>
-<p>注意：Coding Pages 成功部署后您的网站可被公开访问，私有项目也是如此。</p>
+<p>In order to reduce the submission file size, our metric uses run-length encoding on the pixel values. Instead of submitting an exhaustive list of indices for your segmentation, you will submit pairs of values that contain a start position and a run length. E.g. ‘1 3’ implies starting at pixel 1 and running a total of 3 pixels (1,2,3).</p>
 </blockquote>
-</blockquote>
-<p>在参考资料中看到设置为<strong>私有</strong>可能有些问题，考虑到都是会被公开，索性就设置为<strong>公开</strong>。<br><img src="http://www.wailian.work/images/2018/02/11/image.png" alt=""><br>创建完毕后网页会自动跳转到新建的项目位置，选择<strong> Pages 服务</strong>，设置部署来源为<em> Master 分支</em>。<br><img src="http://www.wailian.work/images/2018/02/11/imagea144c.png" alt=""><br>保存后会出现<strong>自定义域名</strong>选项，但是需要完善用户信息，在此不赘述，完善即可，<strong>自定义域名</strong>暂时无需绑定。</p>
-<h3 id="SSH-Keys-设置"><a href="#SSH-Keys-设置" class="headerlink" title="SSH Keys 设置"></a>SSH Keys 设置</h3><p>打开 <a href="https://coding.net" target="_blank" rel="noopener">Coding</a> 个人设置页面，选择侧边栏中的<strong> SSH 公钥</strong>，将之前生成的公钥内容（<strong>id_rsa.pub</strong> 文件）粘贴到选框中，密码仍旧是公钥生成时的密码，在推送时会需要输入。<br><img src="http://www.wailian.work/images/2018/02/11/image4aa95.png" alt=""></p>
-<h2 id="Hexo-配置"><a href="#Hexo-配置" class="headerlink" title="Hexo 配置"></a>Hexo 配置</h2><p>打开主题配置文件<code>_config.yml</code>，在<code>Deploy</code>字段添加 repository：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repository: </span><br><span class="line">    github: git@github.com:DexterLei/DexterLei.github.io.git</span><br><span class="line">    coding: git@git.coding.net:DexterLei/dexterlei.coding.me.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></p>
-<p>然后将博客更新并推送，即可在 <a href="DexterLei.github.io">DexterLei.github.io</a>和 <a href="dexterlei.coding.me">dexterlei.coding.me</a> 中访问个人博客，明显后者要更快一些。<br>在推送过程中应该是需要分别输入两次SSH密码，都是相同的。</p>
-<h2 id="域名设置"><a href="#域名设置" class="headerlink" title="域名设置"></a>域名设置</h2><h3 id="Coding-Pages-设置"><a href="#Coding-Pages-设置" class="headerlink" title="Coding Pages 设置"></a>Coding Pages 设置</h3><p>回到 Coding Pages 的设置界面，绑定个人域名：<br><img src="http://www.wailian.work/images/2018/02/11/imagea052b.png" alt=""><br>不太清楚为什么 <a href="dexterlei.com">dexterlei.com</a> SSL/TLS 证书认证失败，索性将其指向 <a href="www.dexterlei.com">www.dexterlei.com</a>，并强制使用 <strong>https:</strong>。</p>
-<h3 id="域名解析设置"><a href="#域名解析设置" class="headerlink" title="域名解析设置"></a>域名解析设置</h3><p>进入阿里云/万网域名解析设置页面，参考如下设置：<br><img src="http://www.wailian.work/images/2018/02/11/image3e30e.png" alt=""><br>将指向 Github 的解析线路设置为<strong>世界</strong>，即外网访问。其余设置为默认即可。<br>完成设置后如下链接均可以正常跳转到 <a href="www.dexterlei.com">www.dexterlei.com</a> 并由 Coding 解析。</p>
-<ul>
-<li><a href="www.dexterlei.com">www.dexterlei.com</a></li>
-<li><a href="dexterlei.com">dexterlei.com</a></li>
-<li><a href="dexterlei.github.io">dexterlei.github.io</a></li>
-<li><a href="dexterlei.coding.me">dexterlei.coding.me</a></li>
-</ul>
-<h2 id="去除-Coding-Pages-跳转页"><a href="#去除-Coding-Pages-跳转页" class="headerlink" title="去除 Coding  Pages 跳转页"></a>去除 Coding  Pages 跳转页</h2><p>使用 Coding Pages 服务会自动增加跳转页面，但可以通过增加“Hosted by Coding Pages”去除。<br>打开<code>~\themes\next\layout\ _partials\footer.swig</code>文件，加入如下代码：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;% if theme.footer.powered and theme.footer.theme.enable %&#125;</span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"post-meta-divider"</span>&gt;</span>|<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">&#123;% endif %&#125;</span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span>&gt;</span>Hosted by <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"https://pages.coding.me"</span> &gt;</span>Coding Pages<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>位置如下：<br><img src="http://www.wailian.work/images/2018/02/11/image82fba.png" alt=""><br>然后提交审核即可，据说审核通过后可以删除上述代码也有效。</p>
+<h2 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h2><p>行程长度压缩算法即针对字符串的连续重复字符进行编码的一种方法，eg：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"aaaaaaabbccccdefffffffgg"</span></span><br></pre></td></tr></table></figure></p>
+<p>数据结果为：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"a7b2c4d1e1f7g2"</span></span><br></pre></td></tr></table></figure></p>
+<p>更进一步地，RLE 是一种<strong>无损压缩</strong>算法，其<strong>“使用固定长度的码来取代连续重复出现的原始资料”</strong>。<br>其优点在于将重复性高的资料量压缩成小单位；然而，其缺点在于─若该资料出现频率不高，可能导致压缩结果资料量比原始资料大，eg：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"abcdefgh"</span></span><br></pre></td></tr></table></figure></p>
+<p>压缩后比压缩前占用更多空间：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"a1b1c1d1e1f1g1h1"</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="算法实现"><a href="#算法实现" class="headerlink" title="算法实现"></a>算法实现</h2><p>此处参照 Kaggle Data Science Bowl 2018 中 Kjetil Åmdal-SævikKeras 的 Kernel： <a href="https://www.kaggle.com/keegil/keras-u-net-starter-lb-0-277" target="_blank" rel="noopener">U-Net starter - LB 0.277</a>。当然，他也是 “stole” 别人的，具体见代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Run-length encoding stolen from https://www.kaggle.com/rakhlin/fast-run-length-encoding-python</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">rle_encoding</span><span class="params">(x)</span>:</span></span><br><span class="line">    dots = np.where(x.T.flatten() == <span class="number">1</span>)[<span class="number">0</span>]</span><br><span class="line">    run_lengths = []</span><br><span class="line">    prev = <span class="number">-2</span></span><br><span class="line">    <span class="keyword">for</span> b <span class="keyword">in</span> dots:</span><br><span class="line">        <span class="keyword">if</span> (b&gt;prev+<span class="number">1</span>): run_lengths.extend((b + <span class="number">1</span>, <span class="number">0</span>))</span><br><span class="line">        run_lengths[<span class="number">-1</span>] += <span class="number">1</span></span><br><span class="line">        prev = b</span><br><span class="line">    <span class="keyword">return</span> run_lengths</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">prob_to_rles</span><span class="params">(x, cutoff=<span class="number">0.5</span>)</span>:</span></span><br><span class="line">    lab_img = label(x &gt; cutoff)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, lab_img.max() + <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">yield</span> rle_encoding(lab_img == i)</span><br></pre></td></tr></table></figure>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
-<li><a href="http://blog.csdn.net/dengnanyi/article/details/53969684" target="_blank" rel="noopener">使用Github和Coding同时部署Hexo做博客</a></li>
-<li><a href="https://coding.net/help/doc/pages" target="_blank" rel="noopener">Coding Pages 文档</a></li>
-<li><a href="http://blog.csdn.net/ganzhilin520/article/details/79047123" target="_blank" rel="noopener">hexo取消Coding Pages跳转页</a></li>
+<li><a href="http://blog.csdn.net/sinat_36246371/article/details/70053417" target="_blank" rel="noopener">行程长度压缩算法（Run Length Encoding）</a></li>
+<li><a href="http://blog.csdn.net/zhongyanghu27/article/details/8221312" target="_blank" rel="noopener">RLE行程长度编码压缩算法</a></li>
+<li><a href="https://www.kaggle.com/rakhlin/fast-run-length-encoding-python" target="_blank" rel="noopener">Fast Run-Length Encoding (Python)</a></li>
 </ul>
 
       
@@ -504,15 +463,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Github/" rel="tag"># Github</a>
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
           
-            <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+            <a href="/tags/Kaggle/" rel="tag"># Kaggle</a>
           
-            <a href="/tags/Markdown/" rel="tag"># Markdown</a>
-          
-            <a href="/tags/NexT/" rel="tag"># NexT</a>
-          
-            <a href="/tags/Coding/" rel="tag"># Coding</a>
+            <a href="/tags/RLE/" rel="tag"># RLE</a>
           
         </div>
       
@@ -540,8 +495,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/31/论文阅读-Suggest-Annotation-A-Deep-Active-Learning-Framework-for-Biomedical-Image-Segmentation/" rel="next" title="[论文阅读] Suggest Annotation: A Deep Active Learning Framework for Biomedical Image Segmentation">
-                <i class="fa fa-chevron-left"></i> [论文阅读] Suggest Annotation: A Deep Active Learning Framework for Biomedical Image Segmentation
+              <a href="/2018/02/23/机器学习-深度学习-基础概念/" rel="next" title="机器学习/深度学习 基础概念">
+                <i class="fa fa-chevron-left"></i> 机器学习/深度学习 基础概念
               </a>
             
           </div>
@@ -549,10 +504,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/02/13/Something-Fun-Useful/" rel="prev" title="Something Fun & Useful">
-                Something Fun & Useful <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -721,7 +672,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Coding-设置"><span class="nav-number">2.</span> <span class="nav-text">Coding 设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建静态-Coding-Pages"><span class="nav-number">2.1.</span> <span class="nav-text">创建静态 Coding Pages</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SSH-Keys-设置"><span class="nav-number">2.2.</span> <span class="nav-text">SSH Keys 设置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-配置"><span class="nav-number">3.</span> <span class="nav-text">Hexo 配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#域名设置"><span class="nav-number">4.</span> <span class="nav-text">域名设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Coding-Pages-设置"><span class="nav-number">4.1.</span> <span class="nav-text">Coding Pages 设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#域名解析设置"><span class="nav-number">4.2.</span> <span class="nav-text">域名解析设置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#去除-Coding-Pages-跳转页"><span class="nav-number">5.</span> <span class="nav-text">去除 Coding  Pages 跳转页</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">6.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法原理"><span class="nav-number">2.</span> <span class="nav-text">算法原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法实现"><span class="nav-number">3.</span> <span class="nav-text">算法实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">4.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>
