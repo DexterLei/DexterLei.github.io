@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="Mark," />
+  <meta name="keywords" content="机器学习,Kaggle,Mask-RCNN,Instance Segmentation," />
 
 
 
@@ -83,20 +83,21 @@
 
 
 
-<meta name="keywords" content="Mark">
+<meta name="description" content="写在前面此文记录配置 Mask-RCNN 的相关工作，具体为 matterport/Mask_RCNN ，系统环境为 Ubuntu 16.04 。 准备工作matterport/Mask_RCNN 中系统及依赖要求为：  Python 3.4+ TensorFlow 1.3+ Keras 2.0.8+ Jupyter Notebook Numpy, skimage, scipy, Pillow,">
+<meta name="keywords" content="机器学习,Kaggle,Mask-RCNN,Instance Segmentation">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Something Fun &amp; Useful">
-<meta property="og:url" content="http://yoursite.com/2018/02/13/Something-Fun-Useful/index.html">
+<meta property="og:title" content="配置 Mask-RCNN (matterport)">
+<meta property="og:url" content="http://yoursite.com/2018/03/07/配置-Mask-RCNN/index.html">
 <meta property="og:site_name" content="Dexter Lei">
+<meta property="og:description" content="写在前面此文记录配置 Mask-RCNN 的相关工作，具体为 matterport/Mask_RCNN ，系统环境为 Ubuntu 16.04 。 准备工作matterport/Mask_RCNN 中系统及依赖要求为：  Python 3.4+ TensorFlow 1.3+ Keras 2.0.8+ Jupyter Notebook Numpy, skimage, scipy, Pillow,">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/8cc88963gw1ekaujcoaf5g20a006yq7f.gif">
-<meta property="og:image" content="https://s1.ax1x.com/2018/02/13/9YEAC4.png">
-<meta property="og:image" content="https://s1.ax1x.com/2018/02/13/9YA6HK.png">
-<meta property="og:image" content="http://www.wailian.work/images/2018/02/24/image.png">
-<meta property="og:updated_time" content="2018-02-24T10:56:59.896Z">
+<meta property="og:image" content="http://www.wailian.work/images/2018/03/07/Screenshotfrom2018-03-0718-54-11.png">
+<meta property="og:image" content="https://github.com/matterport/Mask_RCNN/raw/master/assets/donuts.png">
+<meta property="og:updated_time" content="2018-03-07T11:05:02.146Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Something Fun &amp; Useful">
-<meta name="twitter:image" content="http://ww1.sinaimg.cn/mw690/8cc88963gw1ekaujcoaf5g20a006yq7f.gif">
+<meta name="twitter:title" content="配置 Mask-RCNN (matterport)">
+<meta name="twitter:description" content="写在前面此文记录配置 Mask-RCNN 的相关工作，具体为 matterport/Mask_RCNN ，系统环境为 Ubuntu 16.04 。 准备工作matterport/Mask_RCNN 中系统及依赖要求为：  Python 3.4+ TensorFlow 1.3+ Keras 2.0.8+ Jupyter Notebook Numpy, skimage, scipy, Pillow,">
+<meta name="twitter:image" content="http://www.wailian.work/images/2018/03/07/Screenshotfrom2018-03-0718-54-11.png">
 
 
 
@@ -126,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/02/13/Something-Fun-Useful/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/07/配置-Mask-RCNN/"/>
 
 
 
 
 
-  <title>Something Fun & Useful | Dexter Lei</title>
+  <title>配置 Mask-RCNN (matterport) | Dexter Lei</title>
   
 
 
@@ -279,7 +280,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/13/Something-Fun-Useful/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/07/配置-Mask-RCNN/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dexter Lei">
@@ -296,7 +297,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Something Fun & Useful</h1>
+          <h1 class="post-title" itemprop="name headline">配置 Mask-RCNN (matterport)</h1>
         
 
         <div class="post-meta">
@@ -308,8 +309,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-13T20:45:45+08:00">
-                2018-02-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-07T18:25:36+08:00">
+                2018-03-07
               </time>
             
 
@@ -331,8 +332,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工具/" itemprop="url" rel="index">
-                    <span itemprop="name">工具</span>
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
                   </a>
                 </span>
 
@@ -367,7 +368,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  279 字
+                  406 字
                 </span>
               
 
@@ -383,7 +384,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1 分钟
+                  2 分钟
                 </span>
               
             </div>
@@ -404,14 +405,38 @@
       
 
       
-        <p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=4212952&auto=0&height=66"></iframe><br><a id="more"></a></p>
-<blockquote class="blockquote-center"><br>    人和动物最大的区别在于是否会使用工具。<br></blockquote>
-
-<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>此文记录计算机上一些不常见但高效的工具，包括离线软件、在线工具等。</p>
-<h2 id="离线软件"><a href="#离线软件" class="headerlink" title="离线软件"></a>离线软件</h2><h3 id="WGestures全局鼠标手势"><a href="#WGestures全局鼠标手势" class="headerlink" title="WGestures全局鼠标手势"></a><a href="http://www.yingdev.com/projects/wgestures" target="_blank" rel="noopener">WGestures全局鼠标手势</a></h3><p><img src="http://ww1.sinaimg.cn/mw690/8cc88963gw1ekaujcoaf5g20a006yq7f.gif" alt=""><br>之前使用过 <a href="http://xkonglong.com/strokesplus/" target="_blank" rel="noopener">StrokesPlus</a>，感觉小问题较多，距离趁手还相距甚远，至少开机启动基本无效需要重开就挺让人难受。后来发现有些浏览器自带收拾功能，但也只局限于浏览器内。最后发现了国产开源软件：WGestures，感觉终于可以不再折腾了。<br>缺点有，比如可能和鼠标自定义按键有冲突，但瑕不掩瑜。</p>
-<h2 id="在线工具"><a href="#在线工具" class="headerlink" title="在线工具"></a>在线工具</h2><h3 id="图像处理"><a href="#图像处理" class="headerlink" title="图像处理"></a>图像处理</h3><h4 id="路过图床"><a href="#路过图床" class="headerlink" title="路过图床"></a><a href="https://imgchr.com/" target="_blank" rel="noopener">路过图床</a></h4><p>功能如其名，只是随便存存图而已，比如下面的举牌小人截图：D</p>
-<h4 id="举牌小人"><a href="#举牌小人" class="headerlink" title="举牌小人"></a><a href="http://upuptoyou.com/" target="_blank" rel="noopener">举牌小人</a></h4><p>一个有意思的网站，提供相框和“举牌小人”，内容可以自定义。<br><img src="https://s1.ax1x.com/2018/02/13/9YEAC4.png" alt="相框"><br><img src="https://s1.ax1x.com/2018/02/13/9YA6HK.png" alt="举牌小人"></p>
-<h3 id="文件编辑"><a href="#文件编辑" class="headerlink" title="文件编辑"></a>文件编辑</h3><h4 id="Cmd-Markdown-编辑阅读器"><a href="#Cmd-Markdown-编辑阅读器" class="headerlink" title="Cmd Markdown 编辑阅读器"></a><a href="www.zybuluo.com">Cmd Markdown 编辑阅读器</a></h4><p>非常棒的 Markdowm 在线编辑器，可以实时预览，支持 MathJax 等众多拓展功能。<br><img src="http://www.wailian.work/images/2018/02/24/image.png" alt="Cmd Markdown 编辑阅读器"></p>
+        <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>此文记录配置 Mask-RCNN 的相关工作，具体为 <a href="https://github.com/matterport/Mask_RCNN" target="_blank" rel="noopener">matterport/Mask_RCNN</a> ，系统环境为 Ubuntu 16.04 。</p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p><a href="https://github.com/matterport/Mask_RCNN" target="_blank" rel="noopener">matterport/Mask_RCNN</a> 中系统及依赖要求为：</p>
+<ul>
+<li>Python 3.4+</li>
+<li>TensorFlow 1.3+</li>
+<li>Keras 2.0.8+</li>
+<li>Jupyter Notebook</li>
+<li>Numpy, skimage, scipy, Pillow, cython, h5py</li>
+</ul>
+<p>使用 Anaconda 新建环境，用以配置 Mask-RCNN：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建一个名为 Mask-RCNN 的环境，制定 Python 版本为3.6</span></span><br><span class="line">conda create --name Mask-RCNN python=3.6</span><br></pre></td></tr></table></figure></p>
+<p>然后在新建的环境内分别安装其他依赖包即可。 TensorFlow 建议参照官方安装流程，当然，多半会发现因为 Wall 的原因导致安装失败。 可以使用清华源作为替代： <a href="https://mirrors.tuna.tsinghua.edu.cn/help/tensorflow/" target="_blank" rel="noopener">TensorFlow 镜像使用帮助</a><br>直接使用 <code>conda</code> 命令安装的 TensorFlow 基本无法成功调用 GPU，没有 GPU 则可以考虑，毕竟方便。</p>
+<h2 id="配置-Mask-RCNN"><a href="#配置-Mask-RCNN" class="headerlink" title="配置 Mask-RCNN"></a>配置 Mask-RCNN</h2><h3 id="下载-Clone-matterport-Mask-RCNN"><a href="#下载-Clone-matterport-Mask-RCNN" class="headerlink" title="下载/Clone matterport/Mask_RCNN"></a>下载/Clone <a href="https://github.com/matterport/Mask_RCNN" target="_blank" rel="noopener">matterport/Mask_RCNN</a></h3><p>或者在  <a href="https://github.com/matterport/Mask_RCNN/releases" target="_blank" rel="noopener">releases page</a> 中下载。</p>
+<h3 id="下载-mask-rcnn-coco-h5"><a href="#下载-mask-rcnn-coco-h5" class="headerlink" title="下载 mask_rcnn_coco.h5"></a>下载 mask_rcnn_coco.h5</h3><blockquote>
+<p>Download pre-trained COCO weights (mask_rcnn_coco.h5) from the <a href="https://github.com/matterport/Mask_RCNN/releases" target="_blank" rel="noopener">releases page</a>.</p>
+</blockquote>
+<h3 id="安装-pycocotools"><a href="#安装-pycocotools" class="headerlink" title="安装 pycocotools"></a>安装 <code>pycocotools</code></h3><blockquote>
+<ul>
+<li>Linux: <a href="https://github.com/waleedka/coco" target="_blank" rel="noopener">https://github.com/waleedka/coco</a></li>
+<li>Windows: <a href="https://github.com/philferriere/cocoapi" target="_blank" rel="noopener">https://github.com/philferriere/cocoapi</a>. You must have the Visual C++ 2015 build tools on your path (see the repo for additional details)</li>
+</ul>
+</blockquote>
+<ul>
+<li>下载源文件后打开 <code>coco/PythonAPI</code> ，并在此目录下打开终端，进入之前新建的 Mask-RCNN 环境，运行 <code>make</code> 。</li>
+<li>如果终端提示 Mask-RCNN 环境中缺少 Cython ，则重新安装后运行 <code>make</code>。</li>
+<li>将生成的 <code>pycocotools</code> 文件夹复制到 Mask-RCNN 的源文件中即可。<br><img src="http://www.wailian.work/images/2018/03/07/Screenshotfrom2018-03-0718-54-11.png" alt="Screenshotfrom2018-03-0718-54-11.png"></li>
+<li>使用 Jupyter 运行 <code>demo.ipynb</code> 即可看到预测的图样：<br><img src="https://github.com/matterport/Mask_RCNN/raw/master/assets/donuts.png" alt=""></li>
+<li>如果存在无法调用 <code>coco</code> 的情况，可以考虑将 <code>pycocotools</code> 路径（<code>coco/PythonAPI</code>）添加到系统路径。</li>
+</ul>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="http://blog.csdn.net/wei_guo_xd/article/details/78579534" target="_blank" rel="noopener">matterport Mask_RCNN配置</a></li>
+<li><a href="http://www.studyai.com/article/e1727115" target="_blank" rel="noopener">Mask RCNN 配置体验</a></li>
+</ul>
 
       
     </div>
@@ -458,7 +483,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Mark/" rel="tag"># Mark</a>
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+          
+            <a href="/tags/Kaggle/" rel="tag"># Kaggle</a>
+          
+            <a href="/tags/Mask-RCNN/" rel="tag"># Mask-RCNN</a>
+          
+            <a href="/tags/Instance-Segmentation/" rel="tag"># Instance Segmentation</a>
           
         </div>
       
@@ -486,8 +517,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/02/11/使用-Github-Coding-双线部署个人博客/" rel="next" title="使用 Github&Coding 双线部署个人博客">
-                <i class="fa fa-chevron-left"></i> 使用 Github&Coding 双线部署个人博客
+              <a href="/2018/02/26/Dexter-Learns-to-Python/" rel="next" title="Dexter Learns to Python">
+                <i class="fa fa-chevron-left"></i> Dexter Learns to Python
               </a>
             
           </div>
@@ -495,10 +526,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/02/23/机器学习-深度学习-基础概念/" rel="prev" title="机器学习/深度学习 基础概念">
-                机器学习/深度学习 基础概念 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -667,7 +694,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#离线软件"><span class="nav-number">2.</span> <span class="nav-text">离线软件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#WGestures全局鼠标手势"><span class="nav-number">2.1.</span> <span class="nav-text">WGestures全局鼠标手势</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在线工具"><span class="nav-number">3.</span> <span class="nav-text">在线工具</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#图像处理"><span class="nav-number">3.1.</span> <span class="nav-text">图像处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#路过图床"><span class="nav-number">3.1.1.</span> <span class="nav-text">路过图床</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#举牌小人"><span class="nav-number">3.1.2.</span> <span class="nav-text">举牌小人</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件编辑"><span class="nav-number">3.2.</span> <span class="nav-text">文件编辑</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Cmd-Markdown-编辑阅读器"><span class="nav-number">3.2.1.</span> <span class="nav-text">Cmd Markdown 编辑阅读器</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#准备工作"><span class="nav-number">2.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置-Mask-RCNN"><span class="nav-number">3.</span> <span class="nav-text">配置 Mask-RCNN</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载-Clone-matterport-Mask-RCNN"><span class="nav-number">3.1.</span> <span class="nav-text">下载/Clone matterport/Mask_RCNN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载-mask-rcnn-coco-h5"><span class="nav-number">3.2.</span> <span class="nav-text">下载 mask_rcnn_coco.h5</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-pycocotools"><span class="nav-number">3.3.</span> <span class="nav-text">安装 pycocotools</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">4.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>
