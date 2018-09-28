@@ -83,23 +83,23 @@
 
 
 
-<meta name="description" content="Code Anywhere1. Running a notebook server通过 notebook server 实现局域网内对服务器中 Jupyter Notebook 的访问与使用。可以直接参照官方文档（英文）：Running a notebook server。 1.1 创建 notebook 配置文件检查是否已存在 notebook 配置文件 jupyter_notebook_con">
+<meta name="description" content="此文记录配置服务器使其能够随时随地远程访问与调试的全过程。">
 <meta name="keywords" content="Mark,Ubuntu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Code Anywhere">
 <meta property="og:url" content="http://yoursite.com/2019/09/28/Code Anywhere/index.html">
 <meta property="og:site_name" content="Dexter Lei">
-<meta property="og:description" content="Code Anywhere1. Running a notebook server通过 notebook server 实现局域网内对服务器中 Jupyter Notebook 的访问与使用。可以直接参照官方文档（英文）：Running a notebook server。 1.1 创建 notebook 配置文件检查是否已存在 notebook 配置文件 jupyter_notebook_con">
+<meta property="og:description" content="此文记录配置服务器使其能够随时随地远程访问与调试的全过程。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5549241-5b7ec43b39a2bcbf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5549241-f602eed2ed21e34b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5549241-8ed8caf2ca1f57b3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://i.loli.net/2018/09/28/5bade71411d20.png">
 <meta property="og:image" content="https://i.loli.net/2018/09/28/5badf5dd1f58e.png">
-<meta property="og:updated_time" content="2018-09-28T13:14:35.455Z">
+<meta property="og:updated_time" content="2018-09-28T13:18:19.021Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Code Anywhere">
-<meta name="twitter:description" content="Code Anywhere1. Running a notebook server通过 notebook server 实现局域网内对服务器中 Jupyter Notebook 的访问与使用。可以直接参照官方文档（英文）：Running a notebook server。 1.1 创建 notebook 配置文件检查是否已存在 notebook 配置文件 jupyter_notebook_con">
+<meta name="twitter:description" content="此文记录配置服务器使其能够随时随地远程访问与调试的全过程。">
 <meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/5549241-5b7ec43b39a2bcbf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -371,7 +371,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,894 字
+                  1,920 字
                 </span>
               
 
@@ -408,7 +408,8 @@
       
 
       
-        <h1 id="Code-Anywhere"><a href="#Code-Anywhere" class="headerlink" title="Code Anywhere"></a>Code Anywhere</h1><h2 id="1-Running-a-notebook-server"><a href="#1-Running-a-notebook-server" class="headerlink" title="1. Running a notebook server"></a>1. Running a notebook server</h2><p>通过 notebook server 实现局域网内对服务器中 Jupyter Notebook 的访问与使用。可以直接参照官方文档（英文）：<a href="https://jupyter-notebook.readthedocs.io/en/latest/public_server.html#running-a-notebook-server" target="_blank" rel="noopener">Running a notebook server</a>。</p>
+        <p>此文记录配置服务器使其能够随时随地远程访问与调试的全过程。<br><a id="more"></a></p>
+<h2 id="1-Running-a-notebook-server"><a href="#1-Running-a-notebook-server" class="headerlink" title="1. Running a notebook server"></a>1. Running a notebook server</h2><p>通过 notebook server 实现局域网内对服务器中 Jupyter Notebook 的访问与使用。可以直接参照官方文档（英文）：<a href="https://jupyter-notebook.readthedocs.io/en/latest/public_server.html#running-a-notebook-server" target="_blank" rel="noopener">Running a notebook server</a>。</p>
 <h3 id="1-1-创建-notebook-配置文件"><a href="#1-1-创建-notebook-配置文件" class="headerlink" title="1.1 创建 notebook 配置文件"></a>1.1 创建 notebook 配置文件</h3><p>检查是否已存在 notebook 配置文件 <code>jupyter_notebook_config.py</code>，默认路径为：</p>
 <ul>
 <li>Windows: <code>C:\Users\USERNAME\.jupyter\jupyter_notebook_config.py</code></li>
@@ -775,7 +776,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Code-Anywhere"><span class="nav-number">1.</span> <span class="nav-text">Code Anywhere</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Running-a-notebook-server"><span class="nav-number">1.1.</span> <span class="nav-text">1. Running a notebook server</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-创建-notebook-配置文件"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1 创建 notebook 配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-创建-notebook-登录密码"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.2 创建 notebook 登录密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-修改-notebook-配置文件"><span class="nav-number">1.1.3.</span> <span class="nav-text">1.3 修改 notebook 配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-局域网内访问"><span class="nav-number">1.1.4.</span> <span class="nav-text">1.4 局域网内访问</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-SSH"><span class="nav-number">1.2.</span> <span class="nav-text">2. SSH</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-安装-SSH"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1 安装 SSH</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-设置开机自启动"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2 设置开机自启动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-使用-Putty-局域网内访问"><span class="nav-number">1.2.3.</span> <span class="nav-text">2.3 使用 Putty 局域网内访问</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-使用-WinSCP-实现文件操作"><span class="nav-number">1.3.</span> <span class="nav-text">3. 使用 WinSCP 实现文件操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-使用-frp-阿里云-实现内网穿透"><span class="nav-number">1.4.</span> <span class="nav-text">4. 使用 frp + 阿里云 实现内网穿透</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-开通阿里云"><span class="nav-number">1.4.1.</span> <span class="nav-text">4.1 开通阿里云</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-frp-配置"><span class="nav-number">1.4.2.</span> <span class="nav-text">4.2 frp 配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-客户端自启动"><span class="nav-number">1.4.3.</span> <span class="nav-text">4.3 客户端自启动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-frp-多用户设置"><span class="nav-number">1.4.4.</span> <span class="nav-text">4.3 frp 多用户设置</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Running-a-notebook-server"><span class="nav-number">1.</span> <span class="nav-text">1. Running a notebook server</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-创建-notebook-配置文件"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 创建 notebook 配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-创建-notebook-登录密码"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 创建 notebook 登录密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-修改-notebook-配置文件"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 修改 notebook 配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-局域网内访问"><span class="nav-number">1.4.</span> <span class="nav-text">1.4 局域网内访问</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-SSH"><span class="nav-number">2.</span> <span class="nav-text">2. SSH</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-安装-SSH"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 安装 SSH</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-设置开机自启动"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 设置开机自启动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-使用-Putty-局域网内访问"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 使用 Putty 局域网内访问</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-使用-WinSCP-实现文件操作"><span class="nav-number">3.</span> <span class="nav-text">3. 使用 WinSCP 实现文件操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-使用-frp-阿里云-实现内网穿透"><span class="nav-number">4.</span> <span class="nav-text">4. 使用 frp + 阿里云 实现内网穿透</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-开通阿里云"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 开通阿里云</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-frp-配置"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 frp 配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-客户端自启动"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 客户端自启动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-frp-多用户设置"><span class="nav-number">4.4.</span> <span class="nav-text">4.3 frp 多用户设置</span></a></li></ol></li></ol></div>
             
 
           </div>

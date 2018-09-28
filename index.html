@@ -361,7 +361,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,894 字
+                  1,920 字
                 </span>
               
 
@@ -399,123 +399,14 @@
 
       
         
-          
-            <h1 id="Code-Anywhere"><a href="#Code-Anywhere" class="headerlink" title="Code Anywhere"></a>Code Anywhere</h1><h2 id="1-Running-a-notebook-server"><a href="#1-Running-a-notebook-server" class="headerlink" title="1. Running a notebook server"></a>1. Running a notebook server</h2><p>通过 notebook server 实现局域网内对服务器中 Jupyter Notebook 的访问与使用。可以直接参照官方文档（英文）：<a href="https://jupyter-notebook.readthedocs.io/en/latest/public_server.html#running-a-notebook-server" target="_blank" rel="noopener">Running a notebook server</a>。</p>
-<h3 id="1-1-创建-notebook-配置文件"><a href="#1-1-创建-notebook-配置文件" class="headerlink" title="1.1 创建 notebook 配置文件"></a>1.1 创建 notebook 配置文件</h3><p>检查是否已存在 notebook 配置文件 <code>jupyter_notebook_config.py</code>，默认路径为：</p>
-<ul>
-<li>Windows: <code>C:\Users\USERNAME\.jupyter\jupyter_notebook_config.py</code></li>
-<li>OS X: <code>/Users/USERNAME/.jupyter/jupyter_notebook_config.py</code></li>
-<li>Linux: <code>/home/USERNAME/.jupyter/jupyter_notebook_config.py</code></li>
-</ul>
-<p>如不存在，则使用如下命令创建新的配置文件，系统会显示刚创建文件的路径：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ jupyter notebook --generate-config</span><br></pre></td></tr></table></figure>
-<h3 id="1-2-创建-notebook-登录密码"><a href="#1-2-创建-notebook-登录密码" class="headerlink" title="1.2 创建 notebook 登录密码"></a>1.2 创建 notebook 登录密码</h3><p>打开终端，进入 IPython / Python，使用 <code>notebook.auth.security.passwd()</code> 函数创建密钥对：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">In [1]: from notebook.auth import passwd</span><br><span class="line">In [2]: passwd()</span><br><span class="line">Enter password:  <span class="comment">#输入你想设置的密码（此处不会显式地在显示器上显示）</span></span><br><span class="line">Verify password: <span class="comment">#确认你想设置的密码（此处不会显式地在显示器上显示）</span></span><br><span class="line">Out[2]: <span class="string">'sha1:67c9e60bb8b6:9ffede************e042ea597d771089e11aed'</span> <span class="comment">#保存此串代码</span></span><br></pre></td></tr></table></figure>
-<h3 id="1-3-修改-notebook-配置文件"><a href="#1-3-修改-notebook-配置文件" class="headerlink" title="1.3 修改 notebook 配置文件"></a>1.3 修改 notebook 配置文件</h3><p>打开前文中新建或已存在的 notebook 配置文件 <code>jupyter_notebook_config.py</code> 并编辑：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Set ip to '*' to bind on all interfaces (ips) for the public server</span></span><br><span class="line">c.NotebookApp.ip = <span class="string">'*'</span></span><br><span class="line"><span class="comment"># 此处填写前文中生成的密钥</span></span><br><span class="line">c.NotebookApp.password = <span class="string">u'sha1:bcd259ccf...&lt;your hashed password here&gt;'</span></span><br><span class="line"><span class="comment"># 关闭浏览器自动开启</span></span><br><span class="line">c.NotebookApp.open_browser = <span class="keyword">False</span></span><br><span class="line"><span class="comment"># 设置 notebook 访问端口</span></span><br><span class="line">c.NotebookApp.port = <span class="number">2333</span></span><br><span class="line"><span class="comment"># matplotlib 设置（可选）</span></span><br><span class="line">c.InteractiveShellApp.matplotlib = <span class="string">'inline'</span></span><br></pre></td></tr></table></figure>
-<p>* <a href="https://jupyter-notebook.readthedocs.io/en/latest/public_server.html#running-a-notebook-server" target="_blank" rel="noopener">官方文档</a> 中有 SSL 设置部分，较为麻烦，建议跳过（或者设置后使用 <code>https://your_ip:port</code> 来访问）。</p>
-<h3 id="1-4-局域网内访问"><a href="#1-4-局域网内访问" class="headerlink" title="1.4 局域网内访问"></a>1.4 局域网内访问</h3><p><code>jupyter_notebook_config.py</code> 为系统默认配置文件，无需指定，直接使用终端开启 notebook 即可：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">source</span> activate your_env</span><br><span class="line">$ jupyter notebook</span><br></pre></td></tr></table></figure>
-<p>终端中会弹出 notebook 的访问路径，通常为 <code>your_ip:port</code> 或 <code>user_name-Ubuntu:port</code>。打开服务器上浏览器（如有）可以直接访问。或者通过局域网内其他设备，打开浏览器，访问 <code>your_ip:port</code> 进行局域网内远程访问。</p>
-<p>* 查询本机 ip 可以使用 <code>ifconfig -a</code> 查看（第二行 <code>inet 地址</code> 后即为 ip）。</p>
-<p>* 远程文件传输可以使用 WinSCP 实现，具体参照后文《使用 WinSCP 实现文件操作》。</p>
-<h2 id="2-SSH"><a href="#2-SSH" class="headerlink" title="2. SSH"></a>2. SSH</h2><blockquote>
-<p>SSH, secure shell，提供安全的远程登录。从事嵌入式开发搭建 Linux 开发环境中，SSH 的服务的安装是其中必不可少的一步。SSH 方便一个开发小组中人员登录一台服务器，从事代码的编写、编译、运行。方便代码的共享及管理。SSH 是一种安全协议，主要用于给远程登录会话数据进行加密，保证数据传输的安全。</p>
-</blockquote>
-<h3 id="2-1-安装-SSH"><a href="#2-1-安装-SSH" class="headerlink" title="2.1 安装 SSH"></a>2.1 安装 SSH</h3><p>Ubuntu 默认只安装了 SSH-Client 服务，可以使用命令检查是否安装了 SSH-Server 服务：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ dpkg -l | grep ssh</span><br></pre></td></tr></table></figure>
-<p>安装 SSH-Server：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install openssh-server</span><br></pre></td></tr></table></figure>
-<p>检查 SSH 是否启动：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ps -e | grep ssh</span><br></pre></td></tr></table></figure>
-<p>如看到 sshd 则说明已启动，否则手动开启：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo /etc/init.d/ssh start</span><br></pre></td></tr></table></figure>
-<p>或者：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo service ssh start</span><br></pre></td></tr></table></figure>
-<p>SSH-Server 配置文件位于 <code>/etc/ssh/sshd_config</code>，在这里可以定义 SSH 的服务端口，默认端口是 22，可自定义成其他端口号。</p>
-<h3 id="2-2-设置开机自启动"><a href="#2-2-设置开机自启动" class="headerlink" title="2.2 设置开机自启动"></a>2.2 设置开机自启动</h3><p>打开 <code>etc/rc.local</code> 文件（应该需要管理员权限），添加如下内容于 <code>exit 0</code> 之前：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">etc/init.d/sshd start</span><br></pre></td></tr></table></figure>
-<p>或：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service sshd start</span><br></pre></td></tr></table></figure>
-<h3 id="2-3-使用-Putty-局域网内访问"><a href="#2-3-使用-Putty-局域网内访问" class="headerlink" title="2.3 使用 Putty 局域网内访问"></a>2.3 使用 Putty 局域网内访问</h3><p><img src="https://upload-images.jianshu.io/upload_images/5549241-5b7ec43b39a2bcbf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Putty 设置"></p>
-<ul>
-<li>Host Nme (or IP address) ：填写服务器 ip；</li>
-<li>Port：填写访问 SSH 端口，默认为 22；</li>
-<li>Saved Sessions：昵称；</li>
-</ul>
-<p><img src="https://upload-images.jianshu.io/upload_images/5549241-f602eed2ed21e34b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Tunnels 设置"></p>
-<ul>
-<li>Source port：为服务器中 notebook 配置文件所设置的端口，前文中设置为 2333。然后点击 Add 添加到当前配置；</li>
-<li>Destination：将服务器 2333 端口映射到本地的端口设置。</li>
-</ul>
-<p>最后回到主界面，点击 Save 保存配置，方便以后快捷访问。</p>
-<h2 id="3-使用-WinSCP-实现文件操作"><a href="#3-使用-WinSCP-实现文件操作" class="headerlink" title="3. 使用 WinSCP 实现文件操作"></a>3. 使用 WinSCP 实现文件操作</h2><p><img src="https://upload-images.jianshu.io/upload_images/5549241-8ed8caf2ca1f57b3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="WinSCP 配置"></p>
-<ul>
-<li>主机名：填写服务器 ip；</li>
-<li>端口号：同 Putty；</li>
-<li>用户名/密码：为服务器（Ubuntu 系统）用户名与密码。</li>
-</ul>
-<h2 id="4-使用-frp-阿里云-实现内网穿透"><a href="#4-使用-frp-阿里云-实现内网穿透" class="headerlink" title="4. 使用 frp + 阿里云 实现内网穿透"></a>4. 使用 frp + 阿里云 实现内网穿透</h2><p>以上操作仅实现了在局域网内子设备对服务器的访问与文件操作，但脱离局域网后无法使用。因此，我们使用 <a href="https://github.com/fatedier/frp" target="_blank" rel="noopener">frp</a> 与阿里云服务器实现外网对内网的访问。类似的手段还有花生壳，但尝试后效果不佳（不稳定）。如果服务器所在网络具有公网 ip 则无需使用云服务，可以直接实现内网穿透。</p>
-<blockquote>
-<p><a href="https://github.com/fatedier/frp" target="_blank" rel="noopener">frp</a> 是一个可用于内网穿透的高性能的反向代理应用，支持 tcp, udp, http, https 协议。</p>
-<ul>
-<li>frp 的作用：<ul>
-<li>利用处于内网或防火墙后的机器，对外网环境提供 http 或 https 服务。</li>
-<li>对于 http, https 服务支持基于域名的虚拟主机，支持自定义域名绑定，使多个域名可以共用一个80端口。</li>
-<li>利用处于内网或防火墙后的机器，对外网环境提供 tcp 和 udp 服务，例如在家里通过 ssh 访问处于公司内网环境内的主机。</li>
-</ul>
-</li>
-</ul>
-</blockquote>
-<h3 id="4-1-开通阿里云"><a href="#4-1-开通阿里云" class="headerlink" title="4.1 开通阿里云"></a>4.1 开通阿里云</h3><p>打开阿里云官网，页面最下方有 <a href="https://promotion.aliyun.com/ntms/act/campus2018.html" target="_blank" rel="noopener"><strong>学生机</strong></a> 入口。阿里提供了两种产品，依据使用目的选用即可，此处选择 ECS 产品（预装环境 Ubuntu 16.04 64位，地域根据所在地选择）：</p>
-<p><img src="https://i.loli.net/2018/09/28/5bade71411d20.png" alt="学生优惠产品"></p>
-<p>然后通过阿里控制台自带的远程控制终端，或者 Putty 对系统进行控制。</p>
-<h3 id="4-2-frp-配置"><a href="#4-2-frp-配置" class="headerlink" title="4.2 frp 配置"></a>4.2 frp 配置</h3><p>根据对应的操作系统及架构，从 <a href="https://github.com/fatedier/frp/releases" target="_blank" rel="noopener">Release</a> 页面下载最新版本的程序。</p>
-<p>将 <strong>frps</strong> 及 <strong>frps.ini</strong> 放到具有公网 IP 的机器上。</p>
-<p>将 <strong>frpc</strong> 及 <strong>frpc.ini</strong> 放到处于内网环境的机器上。</p>
-<ol>
-<li>修改 frps.ini 文件，这里使用了最简化的配置：</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># frps.ini</span></span><br><span class="line">[common]</span><br><span class="line">bind_port = 7000</span><br></pre></td></tr></table></figure>
-<ol>
-<li>启动 frps：</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./frps -c ./frps.ini</span><br></pre></td></tr></table></figure>
-<p>放入后台运行可以使用如下命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup ./frps -c ./frps.ini &amp;</span><br></pre></td></tr></table></figure>
-<ol>
-<li>修改 frpc.ini 文件，假设 frps 所在服务器的公网 IP 为 x.x.x.x；</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># frpc.ini</span></span><br><span class="line">[common]</span><br><span class="line">server_addr = x.x.x.x</span><br><span class="line">server_port = 7000</span><br><span class="line"></span><br><span class="line">[ssh]</span><br><span class="line"><span class="built_in">type</span> = tcp</span><br><span class="line">local_ip = 127.0.0.1</span><br><span class="line">local_port = 22</span><br><span class="line">remote_port = 6000</span><br></pre></td></tr></table></figure>
-<ol>
-<li>启动 frpc：</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./frpc -c ./frpc.ini</span><br></pre></td></tr></table></figure>
-<ol>
-<li>通过配置 Putty 访问即可。</li>
-</ol>
-<p>其中 <code>server_port</code> 与 <code>remote_port</code> 都需要在阿里云控制台中开放相应端口权限，开启<strong>入方向</strong>即可。</p>
-<p><img src="https://i.loli.net/2018/09/28/5badf5dd1f58e.png" alt="安全组端口设置"></p>
-<p>更多功能实现可以参照 <a href="https://github.com/fatedier/frp" target="_blank" rel="noopener">frp</a> 文档。</p>
-<h3 id="4-3-客户端自启动"><a href="#4-3-客户端自启动" class="headerlink" title="4.3 客户端自启动"></a>4.3 客户端自启动</h3><p>本地服务器可能经常开关机，因此需要设置客户端的开机自启动，此处使用 supervisor 实现，具体资料如下：</p>
-<ul>
-<li><a href="https://blog.csdn.net/u012374229/article/details/47158435" target="_blank" rel="noopener">ubuntu安装和使用supervisor</a></li>
-<li><a href="https://www.tunnelnat.com/help.html?id=19" target="_blank" rel="noopener">ubuntu FRP 设置开机自启动</a></li>
-<li><a href="https://www.v2ex.com/t/210122" target="_blank" rel="noopener">python 的部署 就差 supervisor 了 supervisor 怎么也起不来 centos+supervisor+gunicorn+django</a></li>
-</ul>
-<h3 id="4-3-frp-多用户设置"><a href="#4-3-frp-多用户设置" class="headerlink" title="4.3 frp 多用户设置"></a>4.3 frp 多用户设置</h3><p>当有多台客户端（本地服务器）需要使用 frp 进行内网穿透时，在云服务器上运行多个 frp 服务器程序即可，流程与前面提到的 frp 配置相同，仅需修改如下细节：</p>
-<ul>
-<li>在云服务器上重新复制 frp 程序文件，并将其中 <code>frps.ini</code> 文件名稍作修改避免冲突，比如改为 <code>frps2.ini</code>；</li>
-<li><code>server_port</code> 与 <code>remote_port</code> 需要重新开辟新的端口，与以有端口不冲突，且在云服务器开启相关安全组权限；</li>
-<li><code>nohup ./frps -c ./frps2.ini &amp;</code> 命令时第二个 frp 程序后台运行；</li>
-<li>在第二台本地服务器上进行相关配置。</li>
-</ul>
-<p>多用户配置的参考资料如下：</p>
-<ul>
-<li><a href="https://blog.csdn.net/superljn/article/details/81289993" target="_blank" rel="noopener">FRP内网穿透与多客户端教程</a></li>
-</ul>
-
-          
+          <p>此文记录配置服务器使其能够随时随地远程访问与调试的全过程。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/09/28/Code Anywhere/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -647,7 +538,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  338 字
+                  354 字
                 </span>
               
 
@@ -663,7 +554,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1 分钟
+                  2 分钟
                 </span>
               
             </div>
@@ -685,28 +576,14 @@
 
       
         
-          
-            <a id="more"></a>
-<h1 id="Jupyter-Notebook-插件安装"><a href="#Jupyter-Notebook-插件安装" class="headerlink" title="Jupyter Notebook 插件安装"></a>Jupyter Notebook 插件安装</h1><p>Jupyter Notebook 是一个算法工程师友好的工具，但仍有许多拓展的空间，比如：当你的文件中包含大量的代码和 Markdown 混排时，你可能需要一个目录来帮助你更好的对文件结构进行可视化，<a href="https://github.com/ipython-contrib/jupyter_contrib_nbextensions" target="_blank" rel="noopener"><strong>nbextensions</strong></a> 可以帮我们实现。</p>
-<h2 id="1-概览"><a href="#1-概览" class="headerlink" title="1. 概览"></a>1. 概览</h2><blockquote>
-<p> <a href="https://github.com/ipython-contrib/jupyter_contrib_nbextensions" target="_blank" rel="noopener"><strong>Nbextensions</strong></a> is a collection of various notebook extensions for Jupyter.</p>
-<p>This repository contains a collection of extensions that add functionality to the Jupyter notebook. These extensions are mostly written in Javascript and will be loaded locally in your browser.</p>
-<p>The IPython-contrib repository is maintained independently by a group of users and developers and not officially related to the IPython development team.</p>
-</blockquote>
-<h2 id="2-安装"><a href="#2-安装" class="headerlink" title="2. 安装"></a>2. 安装</h2><h3 id="2-1-Install-the-python-package"><a href="#2-1-Install-the-python-package" class="headerlink" title="2.1 Install the python package"></a>2.1 Install the python package</h3><p>建议直接使用 <code>Conda</code> 指令进行安装：</p>
-<h4 id="Conda"><a href="#Conda" class="headerlink" title="Conda"></a>Conda</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install -c conda-forge jupyter_contrib_nbextensions</span><br></pre></td></tr></table></figure>
-<h4 id="PIP"><a href="#PIP" class="headerlink" title="PIP"></a>PIP</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install jupyter_contrib_nbextensions</span><br></pre></td></tr></table></figure>
-<p>或者：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install https://github.com/ipython-contrib/jupyter_contrib_nbextensions/tarball/master</span><br></pre></td></tr></table></figure>
-<p><img src="https://i.loli.net/2018/09/09/5b94e5655f1c7.png" alt="conda install"></p>
-<h3 id="2-2-Install-javascript-and-css-files"><a href="#2-2-Install-javascript-and-css-files" class="headerlink" title="2.2 Install javascript and css files"></a>2.2 Install javascript and css files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter contrib nbextension install --user</span><br></pre></td></tr></table></figure>
-<h2 id="3-配置"><a href="#3-配置" class="headerlink" title="3. 配置"></a>3. 配置</h2><p>打开 Jupyter Notebook，可以看到主界面餐单栏多出了 <code>Nbextensions</code> 选项，点击可以展开拓展程序选项：</p>
-<p><img src="https://i.loli.net/2018/09/09/5b94f402d4c72.png" alt="微信图片_20180909171811.png"></p>
-<p><a href="https://i.loli.net/2018/09/09/5b94f55acbba2.png" target="_blank" rel="noopener"><img src="https://i.loli.net/2018/09/09/5b94f55acbba2.png" alt="微信截图_20180909182545.png"></a></p>
-<p>每个拓展程序均可以单击后查看介绍与使用方法，我们以拓展目录为例。勾选红框中的 <code>Table of Contets (2)</code> 项目。然后新建一个项目，点击菜单栏的最右边新增的目录符号，即可显示文件目录。更多的设置可以点击左侧目录的设置按钮。</p>
-<p><img src="https://i.loli.net/2018/09/09/5b94f6f1ecb13.png" alt="微信图片_20180909183246.png"></p>
-
-          
+          <p>此文记录关于 Jupyter Notebook 插件安装 全部信息。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/09/20/Jupyter Notebook 插件安装/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
