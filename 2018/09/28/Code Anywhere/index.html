@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="L5OBVnCD9e2Vqn6sF_lDWsPn2dgkBZJ8DkTbnyfTeLo" />
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="ktmY0FaJgU" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Code Anywhere1. Running a notebook server通过 notebook server 实现局域网内对服务器中 Jupyter Notebook 的访问与使用。可以直接参照官方文档（英文）：Running a notebook server。 1.1 创建 notebook 配置文件检查是否已存在 notebook 配置文件 jupyter_notebook_con">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Dexter Lei">
+<meta property="og:url" content="http://yoursite.com/2018/09/28/Code Anywhere/index.html">
+<meta property="og:site_name" content="Dexter Lei">
+<meta property="og:description" content="Code Anywhere1. Running a notebook server通过 notebook server 实现局域网内对服务器中 Jupyter Notebook 的访问与使用。可以直接参照官方文档（英文）：Running a notebook server。 1.1 创建 notebook 配置文件检查是否已存在 notebook 配置文件 jupyter_notebook_con">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5549241-5b7ec43b39a2bcbf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5549241-f602eed2ed21e34b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5549241-8ed8caf2ca1f57b3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://i.loli.net/2018/09/28/5bade71411d20.png">
+<meta property="og:image" content="https://i.loli.net/2018/09/28/5badf5dd1f58e.png">
+<meta property="og:updated_time" content="2018-09-28T13:05:54.897Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Dexter Lei">
+<meta name="twitter:description" content="Code Anywhere1. Running a notebook server通过 notebook server 实现局域网内对服务器中 Jupyter Notebook 的访问与使用。可以直接参照官方文档（英文）：Running a notebook server。 1.1 创建 notebook 配置文件检查是否已存在 notebook 配置文件 jupyter_notebook_con">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/5549241-5b7ec43b39a2bcbf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/09/28/Code Anywhere/"/>
+
+
+
+
+
+  <title> | Dexter Lei</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?6b2a199df06ecf6a22f01dd3cc115dd1";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Dexter Lei</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">DexterLei</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/28/Code Anywhere/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Dexter Lei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dexter Lei">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-28T21:11:04+08:00">
+                2018-09-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>Views
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,894 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  8 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Code-Anywhere"><a href="#Code-Anywhere" class="headerlink" title="Code Anywhere"></a>Code Anywhere</h1><h2 id="1-Running-a-notebook-server"><a href="#1-Running-a-notebook-server" class="headerlink" title="1. Running a notebook server"></a>1. Running a notebook server</h2><p>通过 notebook server 实现局域网内对服务器中 Jupyter Notebook 的访问与使用。可以直接参照官方文档（英文）：<a href="https://jupyter-notebook.readthedocs.io/en/latest/public_server.html#running-a-notebook-server" target="_blank" rel="noopener">Running a notebook server</a>。</p>
+<h3 id="1-1-创建-notebook-配置文件"><a href="#1-1-创建-notebook-配置文件" class="headerlink" title="1.1 创建 notebook 配置文件"></a>1.1 创建 notebook 配置文件</h3><p>检查是否已存在 notebook 配置文件 <code>jupyter_notebook_config.py</code>，默认路径为：</p>
+<ul>
+<li>Windows: <code>C:\Users\USERNAME\.jupyter\jupyter_notebook_config.py</code></li>
+<li>OS X: <code>/Users/USERNAME/.jupyter/jupyter_notebook_config.py</code></li>
+<li>Linux: <code>/home/USERNAME/.jupyter/jupyter_notebook_config.py</code></li>
+</ul>
+<p>如不存在，则使用如下命令创建新的配置文件，系统会显示刚创建文件的路径：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ jupyter notebook --generate-config</span><br></pre></td></tr></table></figure>
+<h3 id="1-2-创建-notebook-登录密码"><a href="#1-2-创建-notebook-登录密码" class="headerlink" title="1.2 创建 notebook 登录密码"></a>1.2 创建 notebook 登录密码</h3><p>打开终端，进入 IPython / Python，使用 <code>notebook.auth.security.passwd()</code> 函数创建密钥对：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">In [1]: from notebook.auth import passwd</span><br><span class="line">In [2]: passwd()</span><br><span class="line">Enter password:  <span class="comment">#输入你想设置的密码（此处不会显式地在显示器上显示）</span></span><br><span class="line">Verify password: <span class="comment">#确认你想设置的密码（此处不会显式地在显示器上显示）</span></span><br><span class="line">Out[2]: <span class="string">'sha1:67c9e60bb8b6:9ffede************e042ea597d771089e11aed'</span> <span class="comment">#保存此串代码</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-3-修改-notebook-配置文件"><a href="#1-3-修改-notebook-配置文件" class="headerlink" title="1.3 修改 notebook 配置文件"></a>1.3 修改 notebook 配置文件</h3><p>打开前文中新建或已存在的 notebook 配置文件 <code>jupyter_notebook_config.py</code> 并编辑：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Set ip to '*' to bind on all interfaces (ips) for the public server</span></span><br><span class="line">c.NotebookApp.ip = <span class="string">'*'</span></span><br><span class="line"><span class="comment"># 此处填写前文中生成的密钥</span></span><br><span class="line">c.NotebookApp.password = <span class="string">u'sha1:bcd259ccf...&lt;your hashed password here&gt;'</span></span><br><span class="line"><span class="comment"># 关闭浏览器自动开启</span></span><br><span class="line">c.NotebookApp.open_browser = <span class="keyword">False</span></span><br><span class="line"><span class="comment"># 设置 notebook 访问端口</span></span><br><span class="line">c.NotebookApp.port = <span class="number">2333</span></span><br><span class="line"><span class="comment"># matplotlib 设置（可选）</span></span><br><span class="line">c.InteractiveShellApp.matplotlib = <span class="string">'inline'</span></span><br></pre></td></tr></table></figure>
+<p>* <a href="https://jupyter-notebook.readthedocs.io/en/latest/public_server.html#running-a-notebook-server" target="_blank" rel="noopener">官方文档</a> 中有 SSL 设置部分，较为麻烦，建议跳过（或者设置后使用 <code>https://your_ip:port</code> 来访问）。</p>
+<h3 id="1-4-局域网内访问"><a href="#1-4-局域网内访问" class="headerlink" title="1.4 局域网内访问"></a>1.4 局域网内访问</h3><p><code>jupyter_notebook_config.py</code> 为系统默认配置文件，无需指定，直接使用终端开启 notebook 即可：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">source</span> activate your_env</span><br><span class="line">$ jupyter notebook</span><br></pre></td></tr></table></figure>
+<p>终端中会弹出 notebook 的访问路径，通常为 <code>your_ip:port</code> 或 <code>user_name-Ubuntu:port</code>。打开服务器上浏览器（如有）可以直接访问。或者通过局域网内其他设备，打开浏览器，访问 <code>your_ip:port</code> 进行局域网内远程访问。</p>
+<p>* 查询本机 ip 可以使用 <code>ifconfig -a</code> 查看（第二行 <code>inet 地址</code> 后即为 ip）。</p>
+<p>* 远程文件传输可以使用 WinSCP 实现，具体参照后文《使用 WinSCP 实现文件操作》。</p>
+<h2 id="2-SSH"><a href="#2-SSH" class="headerlink" title="2. SSH"></a>2. SSH</h2><blockquote>
+<p>SSH, secure shell，提供安全的远程登录。从事嵌入式开发搭建 Linux 开发环境中，SSH 的服务的安装是其中必不可少的一步。SSH 方便一个开发小组中人员登录一台服务器，从事代码的编写、编译、运行。方便代码的共享及管理。SSH 是一种安全协议，主要用于给远程登录会话数据进行加密，保证数据传输的安全。</p>
+</blockquote>
+<h3 id="2-1-安装-SSH"><a href="#2-1-安装-SSH" class="headerlink" title="2.1 安装 SSH"></a>2.1 安装 SSH</h3><p>Ubuntu 默认只安装了 SSH-Client 服务，可以使用命令检查是否安装了 SSH-Server 服务：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ dpkg -l | grep ssh</span><br></pre></td></tr></table></figure>
+<p>安装 SSH-Server：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install openssh-server</span><br></pre></td></tr></table></figure>
+<p>检查 SSH 是否启动：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ps -e | grep ssh</span><br></pre></td></tr></table></figure>
+<p>如看到 sshd 则说明已启动，否则手动开启：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo /etc/init.d/ssh start</span><br></pre></td></tr></table></figure>
+<p>或者：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo service ssh start</span><br></pre></td></tr></table></figure>
+<p>SSH-Server 配置文件位于 <code>/etc/ssh/sshd_config</code>，在这里可以定义 SSH 的服务端口，默认端口是 22，可自定义成其他端口号。</p>
+<h3 id="2-2-设置开机自启动"><a href="#2-2-设置开机自启动" class="headerlink" title="2.2 设置开机自启动"></a>2.2 设置开机自启动</h3><p>打开 <code>etc/rc.local</code> 文件（应该需要管理员权限），添加如下内容于 <code>exit 0</code> 之前：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">etc/init.d/sshd start</span><br></pre></td></tr></table></figure>
+<p>或：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service sshd start</span><br></pre></td></tr></table></figure>
+<h3 id="2-3-使用-Putty-局域网内访问"><a href="#2-3-使用-Putty-局域网内访问" class="headerlink" title="2.3 使用 Putty 局域网内访问"></a>2.3 使用 Putty 局域网内访问</h3><p><img src="https://upload-images.jianshu.io/upload_images/5549241-5b7ec43b39a2bcbf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Putty 设置"></p>
+<ul>
+<li>Host Nme (or IP address) ：填写服务器 ip；</li>
+<li>Port：填写访问 SSH 端口，默认为 22；</li>
+<li>Saved Sessions：昵称；</li>
+</ul>
+<p><img src="https://upload-images.jianshu.io/upload_images/5549241-f602eed2ed21e34b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Tunnels 设置"></p>
+<ul>
+<li>Source port：为服务器中 notebook 配置文件所设置的端口，前文中设置为 2333。然后点击 Add 添加到当前配置；</li>
+<li>Destination：将服务器 2333 端口映射到本地的端口设置。</li>
+</ul>
+<p>最后回到主界面，点击 Save 保存配置，方便以后快捷访问。</p>
+<h2 id="3-使用-WinSCP-实现文件操作"><a href="#3-使用-WinSCP-实现文件操作" class="headerlink" title="3. 使用 WinSCP 实现文件操作"></a>3. 使用 WinSCP 实现文件操作</h2><p><img src="https://upload-images.jianshu.io/upload_images/5549241-8ed8caf2ca1f57b3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="WinSCP 配置"></p>
+<ul>
+<li>主机名：填写服务器 ip；</li>
+<li>端口号：同 Putty；</li>
+<li>用户名/密码：为服务器（Ubuntu 系统）用户名与密码。</li>
+</ul>
+<h2 id="4-使用-frp-阿里云-实现内网穿透"><a href="#4-使用-frp-阿里云-实现内网穿透" class="headerlink" title="4. 使用 frp + 阿里云 实现内网穿透"></a>4. 使用 frp + 阿里云 实现内网穿透</h2><p>以上操作仅实现了在局域网内子设备对服务器的访问与文件操作，但脱离局域网后无法使用。因此，我们使用 <a href="https://github.com/fatedier/frp" target="_blank" rel="noopener">frp</a> 与阿里云服务器实现外网对内网的访问。类似的手段还有花生壳，但尝试后效果不佳（不稳定）。如果服务器所在网络具有公网 ip 则无需使用云服务，可以直接实现内网穿透。</p>
+<blockquote>
+<p><a href="https://github.com/fatedier/frp" target="_blank" rel="noopener">frp</a> 是一个可用于内网穿透的高性能的反向代理应用，支持 tcp, udp, http, https 协议。</p>
+<ul>
+<li>frp 的作用：<ul>
+<li>利用处于内网或防火墙后的机器，对外网环境提供 http 或 https 服务。</li>
+<li>对于 http, https 服务支持基于域名的虚拟主机，支持自定义域名绑定，使多个域名可以共用一个80端口。</li>
+<li>利用处于内网或防火墙后的机器，对外网环境提供 tcp 和 udp 服务，例如在家里通过 ssh 访问处于公司内网环境内的主机。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h3 id="4-1-开通阿里云"><a href="#4-1-开通阿里云" class="headerlink" title="4.1 开通阿里云"></a>4.1 开通阿里云</h3><p>打开阿里云官网，页面最下方有 <a href="https://promotion.aliyun.com/ntms/act/campus2018.html" target="_blank" rel="noopener"><strong>学生机</strong></a> 入口。阿里提供了两种产品，依据使用目的选用即可，此处选择 ECS 产品（预装环境 Ubuntu 16.04 64位，地域根据所在地选择）：</p>
+<p><img src="https://i.loli.net/2018/09/28/5bade71411d20.png" alt="学生优惠产品"></p>
+<p>然后通过阿里控制台自带的远程控制终端，或者 Putty 对系统进行控制。</p>
+<h3 id="4-2-frp-配置"><a href="#4-2-frp-配置" class="headerlink" title="4.2 frp 配置"></a>4.2 frp 配置</h3><p>根据对应的操作系统及架构，从 <a href="https://github.com/fatedier/frp/releases" target="_blank" rel="noopener">Release</a> 页面下载最新版本的程序。</p>
+<p>将 <strong>frps</strong> 及 <strong>frps.ini</strong> 放到具有公网 IP 的机器上。</p>
+<p>将 <strong>frpc</strong> 及 <strong>frpc.ini</strong> 放到处于内网环境的机器上。</p>
+<ol>
+<li>修改 frps.ini 文件，这里使用了最简化的配置：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># frps.ini</span></span><br><span class="line">[common]</span><br><span class="line">bind_port = 7000</span><br></pre></td></tr></table></figure>
+<ol>
+<li>启动 frps：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./frps -c ./frps.ini</span><br></pre></td></tr></table></figure>
+<p>放入后台运行可以使用如下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup ./frps -c ./frps.ini &amp;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>修改 frpc.ini 文件，假设 frps 所在服务器的公网 IP 为 x.x.x.x；</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># frpc.ini</span></span><br><span class="line">[common]</span><br><span class="line">server_addr = x.x.x.x</span><br><span class="line">server_port = 7000</span><br><span class="line"></span><br><span class="line">[ssh]</span><br><span class="line"><span class="built_in">type</span> = tcp</span><br><span class="line">local_ip = 127.0.0.1</span><br><span class="line">local_port = 22</span><br><span class="line">remote_port = 6000</span><br></pre></td></tr></table></figure>
+<ol>
+<li>启动 frpc：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./frpc -c ./frpc.ini</span><br></pre></td></tr></table></figure>
+<ol>
+<li>通过配置 Putty 访问即可。</li>
+</ol>
+<p>其中 <code>server_port</code> 与 <code>remote_port</code> 都需要在阿里云控制台中开放相应端口权限，开启<strong>入方向</strong>即可。</p>
+<p><img src="https://i.loli.net/2018/09/28/5badf5dd1f58e.png" alt="安全组端口设置"></p>
+<p>更多功能实现可以参照 <a href="https://github.com/fatedier/frp" target="_blank" rel="noopener">frp</a> 文档。</p>
+<h3 id="4-3-客户端自启动"><a href="#4-3-客户端自启动" class="headerlink" title="4.3 客户端自启动"></a>4.3 客户端自启动</h3><p>本地服务器可能经常开关机，因此需要设置客户端的开机自启动，此处使用 supervisor 实现，具体资料如下：</p>
+<ul>
+<li><a href="https://blog.csdn.net/u012374229/article/details/47158435" target="_blank" rel="noopener">ubuntu安装和使用supervisor</a></li>
+<li><a href="https://www.tunnelnat.com/help.html?id=19" target="_blank" rel="noopener">ubuntu FRP 设置开机自启动</a></li>
+<li><a href="https://www.v2ex.com/t/210122" target="_blank" rel="noopener">python 的部署 就差 supervisor 了 supervisor 怎么也起不来 centos+supervisor+gunicorn+django</a></li>
+</ul>
+<h3 id="4-3-frp-多用户设置"><a href="#4-3-frp-多用户设置" class="headerlink" title="4.3 frp 多用户设置"></a>4.3 frp 多用户设置</h3><p>当有多台客户端（本地服务器）需要使用 frp 进行内网穿透时，在云服务器上运行多个 frp 服务器程序即可，流程与前面提到的 frp 配置相同，仅需修改如下细节：</p>
+<ul>
+<li>在云服务器上重新复制 frp 程序文件，并将其中 <code>frps.ini</code> 文件名稍作修改避免冲突，比如改为 <code>frps2.ini</code>；</li>
+<li><code>server_port</code> 与 <code>remote_port</code> 需要重新开辟新的端口，与以有端口不冲突，且在云服务器开启相关安全组权限；</li>
+<li><code>nohup ./frps -c ./frps2.ini &amp;</code> 命令时第二个 frp 程序后台运行；</li>
+<li>在第二台本地服务器上进行相关配置。</li>
+</ul>
+<p>多用户配置的参考资料如下：</p>
+<ul>
+<li><a href="https://blog.csdn.net/superljn/article/details/81289993" target="_blank" rel="noopener">FRP内网穿透与多客户端教程</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>予子帮助 于我开心 ʕ •ᴥ•ʔ</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Dexter Lei 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Dexter Lei 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/07/配置-Mask-RCNN/" rel="next" title="配置 Mask-RCNN (matterport)">
+                <i class="fa fa-chevron-left"></i> 配置 Mask-RCNN (matterport)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/28/Jupyter Notebook 插件安装/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMzQ3Ni8xMDAzMg=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="Dexter Lei" />
+            
+              <p class="site-author-name" itemprop="name">Dexter Lei</p>
+              <p class="site-description motion-element" itemprop="description">Dexter's Blog</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/DexterLei" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/Dexter365" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://www.zhihu.com/people/hl" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-graduation-cap"></i>知乎</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/cb5cd695d7b6" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-book"></i>简书</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Code-Anywhere"><span class="nav-number">1.</span> <span class="nav-text">Code Anywhere</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Running-a-notebook-server"><span class="nav-number">1.1.</span> <span class="nav-text">1. Running a notebook server</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-创建-notebook-配置文件"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1 创建 notebook 配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-创建-notebook-登录密码"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.2 创建 notebook 登录密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-修改-notebook-配置文件"><span class="nav-number">1.1.3.</span> <span class="nav-text">1.3 修改 notebook 配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-局域网内访问"><span class="nav-number">1.1.4.</span> <span class="nav-text">1.4 局域网内访问</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-SSH"><span class="nav-number">1.2.</span> <span class="nav-text">2. SSH</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-安装-SSH"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1 安装 SSH</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-设置开机自启动"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2 设置开机自启动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-使用-Putty-局域网内访问"><span class="nav-number">1.2.3.</span> <span class="nav-text">2.3 使用 Putty 局域网内访问</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-使用-WinSCP-实现文件操作"><span class="nav-number">1.3.</span> <span class="nav-text">3. 使用 WinSCP 实现文件操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-使用-frp-阿里云-实现内网穿透"><span class="nav-number">1.4.</span> <span class="nav-text">4. 使用 frp + 阿里云 实现内网穿透</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-开通阿里云"><span class="nav-number">1.4.1.</span> <span class="nav-text">4.1 开通阿里云</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-frp-配置"><span class="nav-number">1.4.2.</span> <span class="nav-text">4.2 frp 配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-客户端自启动"><span class="nav-number">1.4.3.</span> <span class="nav-text">4.3 客户端自启动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-frp-多用户设置"><span class="nav-number">1.4.4.</span> <span class="nav-text">4.3 frp 多用户设置</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-hand-spock-o"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Dexter Lei</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">17.9k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+  <span>Hosted by <a href="https://pages.coding.me" >Coding Pages</a></span>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "default";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
